@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+	<title>AJ렌터카 개발 가이드</title>
+	
+    <link href="../resource/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">			<!-- 부트스트랩 CSS -->
+    <link href="../resource/bootstrap/metisMenu/dist/metisMenu.min.css" rel="stylesheet">	<!-- 부트스트랩 메뉴 CSS -->
+    <link href="../resource/bootstrap/sbAdmin2/dist/css/timeline.css" rel="stylesheet">		<!-- 부트스트랩 TimeLine CSS -->
+    <link href="../resource/bootstrap/sbAdmin2/dist/css/sb-admin-2.css" rel="stylesheet">	<!-- 부트스트랩 테마 CSS -->
+    <link href="../resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	<!-- 부트스트랩 테마폰트 CSS -->
+    
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+	<!-- 네비게이션 -->
+	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+		
+		<!-- 네비게이션 헤더 -->
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="./index.html">AJ렌터카 개발 가이드</a>
+		</div>
+		
+		<!-- 네비게이션 상단 오른쪽 드롭다운 -->
+		<ul class="nav navbar-top-links navbar-right">
+			<li class="dropdown" id="fileDownLoadDropdown">
+			</li>
+		</ul>
+		
+		<!-- 네비게이션 메뉴 -->
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav navbar-collapse">
+				<ul class="nav" id="side-menu">
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<!-- 본문내용 -->
+	<div id="page-wrapper">
+		<br>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading" id="pdfViewerTitle">
+						IBSheet 개발 가이드
+					</div>
+					<div class="panel-body" id="pdfViewer">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- JavaScript -->
+    <script src="../resource/js/jquery-1.11.2.min.js"></script>
+    <script src="../resource/js/common.js"></script>
+    <script src="../resource/js/pdfobject.js"></script>
+    
+    <script src="../resource/bootstrap/dist/js/bootstrap.min.js"></script>			<!-- 부트스트랩 JS -->
+    <script src="../resource/bootstrap/metisMenu/dist/metisMenu.min.js"></script>	<!-- 부트스트랩 메뉴 JS -->
+    <script src="../resource/bootstrap/sbAdmin2/dist/js/sb-admin-2.js"></script>	<!-- 부트스트랩 테마 JS -->
+    
+    <script type="text/javascript">
+	    
+    	$(window).load(function(){
+    		embedPDF();
+		});
+	    
+	    function embedPDF(){
+			var myPDF = new PDFObject({
+					url: '../download/IBSheetHTML.pdf'
+					, width: "100%"
+					, height: $("#page-wrapper").height() - $("#pdfViewerTitle").height() - 20
+			}).embed('pdfViewer'); 
+		}
+    </script>
+</body>
+</html>
