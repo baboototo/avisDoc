@@ -2,6 +2,8 @@
 $(document).ready(function(){
 	createMenuHtml();
 	createFileDownLoadDropdownHtml();
+	
+	initEvent();
 });
 
 /**
@@ -163,4 +165,33 @@ function createMenuJsonData(){
 	       			
 	       	];
 	return menuDataObj
+}
+
+/**
+ * 이벤트
+ */
+function initEvent(){
+	
+	/** 클릭 이벤트 */
+	$(document).on("click", ".btn-default-new", function(e){
+		// 클릭한 버튼의 name 가져오기
+		var nameVal = $(this).attr("name");
+		// nameVal에 해당하는 id의 html 값 가져오기
+		var htmlVal = $('#' + nameVal).html();
+		
+		// htmlVal 값에서 해당 기호를 특수문자로 변경
+		var text = htmlVal.replace(/(&lt;)/g, '<').replace(/(&gt;)/g, '>');
+		
+		/** IE 처리 */
+		if(window.clipboardData){
+		    // 클립보드에 문자열 복사
+		    window.clipboardData.setData('text', text);
+		    
+		    alert("복사 되었습니다.");
+		    
+		/** 비IE 처리 */    
+		} else {                    
+		    window.prompt ("클립보드 복사 : Ctrl + C", text);  
+		}
+	}); 
 }
