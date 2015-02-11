@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+	<title>AJ렌터카 개발 가이드</title>
+	
+    <link href="../resource/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">			<!-- 부트스트랩 CSS -->
+    <link href="../resource/bootstrap/metisMenu/dist/metisMenu.min.css" rel="stylesheet">	<!-- 부트스트랩 메뉴 CSS -->
+    <link href="../resource/bootstrap/sbAdmin2/dist/css/timeline.css" rel="stylesheet">		<!-- 부트스트랩 TimeLine CSS -->
+    <link href="../resource/bootstrap/sbAdmin2/dist/css/sb-admin-2.css" rel="stylesheet">	<!-- 부트스트랩 테마 CSS -->
+    <link href="../resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	<!-- 부트스트랩 테마폰트 CSS -->
+    
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+	<!-- 네비게이션 -->
+	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+		
+		<!-- 네비게이션 헤더 -->
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="./index.html"><b>AJ렌터카 개발 가이드</b></a>
+		</div>
+		
+		<!-- 네비게이션 상단 오른쪽 드롭다운 -->
+		<ul class="nav navbar-top-links navbar-right">
+			<li class="dropdown" id="fileDownLoadDropdown">
+			</li>
+		</ul>
+		
+		<!-- 네비게이션 메뉴 -->
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav navbar-collapse">
+				<ul class="nav" id="side-menu">
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<!-- 본문내용 -->
+	<div id="page-wrapper">
+		<div class="row">
+			<div class="col-lg-12">
+			    <h1 class="page-header">JSP 구성 가이드</h1>
+                
+				<!-- Contents Start -->
+                <div class="panel-group" id="accordion">
+                	
+					<!-- 기본 화면 구성 시작  -->
+                    <div class="panel panel-default">
+                    	<!-- Header Start -->
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><b>기본 화면구성</b></a>
+                            </h4>
+                        </div>
+                    	<!-- Header End -->
+                        
+                        <!-- Body Start -->
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                        	
+							<!-- Content Start -->
+                            <div class="panel-body">
+                            
+                            	<!-- button Start -->
+                            	<div class="btn_right">
+									<button type="button" name="copyBtn01" class="btn btn-outline btn-default-new">복사하기</button>
+	                        	</div>
+                            	<!-- button End -->
+	                        	
+	                        	<!-- Code Start -->
+								<pre class="contentsLine" id="copyBtn01">
+&lt;!-------------------------------------------------------&gt;
+&lt;!-- 파일설명 주석내용 위치 --&gt;
+&lt;!-------------------------------------------------------&gt;
+&lt;%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%&gt;
+&lt;%@ page errorPage="../aviscmn/error.jsp" %&gt;
+&lt;%@ include file="../aviscmn/common.jsp" %&gt;
+&lt;!-------------------------------------------------------&gt;
+&lt;!-- JSP Page Import 설정 위치 --&gt;
+&lt;!-- Java 변수 및 데이터 초기설정 위치 --&gt;
+&lt;!-------------------------------------------------------&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=EUC-KR"&gt;
+&lt;title&gt;타이틀명&lt;/title&gt;
+&lt;!-- 작업하는 파일위치에 따른 include common_script 파일경로수정  --&gt;
+&lt;%@ include file="../resources/common/common_script.jsp" %&gt;
+&lt;!-------------------------------------------------------&gt;
+&lt;!-- 화면에서 사용할 js 파일설정 위치 --&gt;
+&lt;!-------------------------------------------------------&gt;
+&lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="wrap"&gt;
+            &lt;!-- 팝업화면 타이틀 시작 --&gt;
+            &lt;div class="header_pop"&gt;
+                &lt;img src="../resources/images/ui/bg_poptopl.gif" width="28" height="36"&gt;
+                &lt;label id="txtTitle"&gt;팝업타이틀&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;!-- 팝업화면 타이틀 종료 --&gt;
+            &lt;!-- 콘텐츠 화면내용 시작 --&gt;
+            &lt;div id="content_table"&gt;
+            &lt;/div&gt;
+            &lt;!-- 콘텐츠 화면내용 종료 --&gt;
+        &lt;/div&gt;
+        &lt;!-- JavaScript 시작 --&gt;
+        &lt;script type="text/javascript"&gt;
+        &lt;/script&gt;
+        &lt;!-- JavaScript 종료 --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+								</pre>
+								<!-- Code End -->
+                            </div>
+							<!-- Content End -->
+                            
+                            <!-- Footer Start -->
+		                    <div class="panel-footer">
+		                    	<b>※&nbsp;참조</b>
+		                    	<br/>
+								-&nbsp;&nbsp;&nbsp;주석으로 표시된 위치해 각 해당하는 설정 및 내용을 삽입한다.
+		                    </div>
+							<!-- Footer End -->
+							
+                        </div>
+                        <!-- Body End -->
+                    </div>
+                    <!-- 기본 화면 구성 끝  -->
+                    
+                    <!-- 콘텐츠 입력 기본구성 시작  -->
+                    <div class="panel panel-default">
+                    	<!-- Header Start -->
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><b>콘텐츠 입력 기본구성</b></a>
+                            </h4>
+                        </div>
+                    	<!-- Header End -->
+                        
+                        <!-- Body Start -->
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                        
+							<!-- Content Start -->
+                            <div class="panel-body">
+								
+								<!-- button Start -->
+								<div class="btn_right">
+									<button type="button" name="copyBtn02" class="btn btn-outline btn-default-new">복사하기</button>
+	                        	</div>
+								<!-- button End -->
+								
+								<!-- Code Start -->
+								<pre class="contentsLine" id="copyBtn02">
+&lt;!-- 콘텐츠 화면내용 시작 --&gt;
+&lt;div id="content_table"&gt;
+    &lt;!-- 입력폼 시작 --&gt;
+    &lt;div class="tb_basic"&gt;
+        &lt;table&gt;
+            &lt;colgroup&gt;
+                &lt;col style="width:20%;"&gt;
+                &lt;col style="width:30%;"&gt;
+            &lt;/colgroup&gt;
+            
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;&lt;/th&gt; &lt;!-- 제목 --&gt;
+                    &lt;td&gt;&lt;/td&gt; &lt;!-- 입력값 --&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+    &lt;!-- 입력폼 종료 --&gt;
+    
+    &lt;!-- 버튼영역 시작 --&gt;
+    &lt;div class="btn_box"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;span class="button black large"&gt;
+                    &lt;input type="button" onclick="" value="" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;!-- 버튼영역 종료 --&gt;
+&lt;/div&gt;
+&lt;!-- 콘텐츠 화면내용 종료 --&gt;
+								</pre>
+								<!-- Code End -->
+								
+                            </div>
+							<!-- Content End -->
+                            
+                            <!-- Footer Start -->
+		                    <div class="panel-footer">
+		                    	<b>※&nbsp;참조</b>
+		                    	<br/>
+								&lt;colgroup&gt;
+								<br/>
+								-&nbsp;&nbsp;&nbsp;&lt;col&gt;태그를 그룹으로 관리하며, 열 단위로 스타일 제어,
+								&lt;col&gt;을 포함하는 부모요소
+								<br/><br/>
+								&lt;ul&gt;
+								<br/>
+								-&nbsp;&nbsp;&nbsp;버튼 목록의 행
+								<br/><br/>
+								&lt;li&gt;
+								<br/>
+								-&nbsp;&nbsp;&nbsp;버튼 목록의 열
+								<br/><br/>
+		                    </div>
+							<!-- Footer End -->
+							
+                        </div>
+                        <!-- Body End -->
+                    </div>
+                    <!-- 콘텐츠 입력 기본구성 끝  -->
+                    
+                    <!-- 콘텐츠 조회 기본구성 시작  -->
+                    <div class="panel panel-default">
+                    	<!-- Header Start -->
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><b>콘텐츠 조회 기본구성</b></a>
+                            </h4>
+                        </div>
+                    	<!-- Header End -->
+                        
+                        <!-- Body Start -->
+                        <div id="collapseThree" class="panel-collapse collapse">
+                        
+							<!-- Content Start -->
+                            <div class="panel-body">
+                            	
+                            	<!-- button Start -->
+                            	<div class="btn_right">
+									<button type="button" name="copyBtn03" class="btn btn-outline btn-default-new">복사하기</button>
+	                        	</div>
+                            	<!-- button End -->
+								
+								<!-- Code Start -->
+								<pre class="contentsLine" id="copyBtn03">
+&lt;!-- 콘텐츠 화면내용 시작 --&gt;
+&lt;div id="content_table"&gt;
+    &lt;!-- 입력폼 시작 --&gt;
+    &lt;div class="tb_basic"&gt;
+        &lt;table&gt;
+            &lt;colgroup&gt;
+                &lt;col style="width:20%;"&gt;
+                &lt;col style="width:30%;"&gt;
+            &lt;/colgroup&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;&lt;/th&gt; &lt;!-- 제목 --&gt;
+                    &lt;td&gt;&lt;/td&gt; &lt;!-- 입력값 --&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+    &lt;!-- 입력폼 종료 --&gt;
+    
+    &lt;!-- 버튼영역 시작 --&gt;
+    &lt;div class="btn_box"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;span class="button black large"&gt;
+                    &lt;input type="button" onclick="" value="" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;!-- 버튼영역 종료 --&gt;
+    
+    &lt;!-- 그리드영역 시작 --&gt;
+    &lt;div class="grid_box"&gt;
+        &lt;div class="grid_outline"&gt;
+            &lt;script type="text/javascript" charset="UTF-8"&gt; &lt;!-- IBSheet 설정--&gt;
+                createIBSheet("sheet", "100%", "300px"); // IBSheet명, 가로사이즈, 세로사이즈 설정
+            &lt;/script&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 그리드영역 종료 --&gt;
+&lt;/div&gt;
+&lt;!-- 콘텐츠 화면내용 종료 --&gt;
+								</pre>
+								<!-- Code End -->
+                            </div>
+							<!-- Content End -->
+							
+                        </div>
+                        <!-- Body End -->
+                    </div>
+                    <!-- 콘텐츠 조회 기본구성 끝  -->
+                    
+                    
+                    <!-- 콘텐츠 탭 기본구성 시작  -->
+                    <div class="panel panel-default">
+                    	<!-- Header Start -->
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><b>콘텐츠 탭 기본구성</b></a>
+                            </h4>
+                        </div>
+                    	<!-- Header End -->
+                        
+                        <!-- Body Start -->
+                        <div id="collapseFour" class="panel-collapse collapse">
+                        
+							<!-- Content Start -->
+                            <div class="panel-body">
+                            	
+                            	<!-- button Start -->
+                            	<div class="btn_right">
+									<button type="button" name="copyBtn04" class="btn btn-outline btn-default-new">복사하기</button>
+	                        	</div>
+                            	<!-- button End -->
+								
+								<!-- Code Start -->
+								<pre class="contentsLine" id="copyBtn04">
+&lt;!-- 콘텐츠 화면내용 시작 --&gt;
+&lt;div id="content_table"&gt;
+    &lt;!-- 입력폼 시작 --&gt;
+    &lt;div class="tb_basic"&gt;
+        &lt;table&gt;
+            &lt;colgroup&gt;
+                &lt;col style="width:20%;"&gt;
+                &lt;col style="width:30%;"&gt;
+            &lt;/colgroup&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;&lt;/th&gt; &lt;!-- 제목 --&gt;
+                    &lt;td&gt;&lt;/td&gt; &lt;!-- 입력값 --&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+    &lt;!-- 입력폼 종료 --&gt;
+    
+    &lt;!-- 버튼영역 시작 --&gt;
+    &lt;div class="btn_box"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;span class="button black large"&gt;
+                    &lt;input type="button" onclick="" value="" /&gt;
+                &lt;/span&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;!-- 버튼영역 종료 --&gt;
+    
+    &lt;!-- 탭 헤더영역 시작 --&gt;
+    &lt;div class="grid_box"&gt;
+        &lt;div id="mdiTab"&gt;
+            &lt;script type="text/javascript"&gt;
+                createIBMDITab("sheetTab", "100%", "24px", "AVIS");
+            &lt;/script&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 탭 헤더영역 종료 --&gt;
+    
+    &lt;!-- 탭에 해당되는 그리드영역 시작 --&gt;
+    &lt;div class="tab_box"&gt;
+        &lt;div class="tab_outline"&gt;
+            &lt;script type="text/javascript" charset="UTF-8"&gt;
+                createIBSheet("sheet", "100%", "150px");
+            &lt;/script&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 탭에 해당되는 그리드영역 종료 --&gt;
+&lt;/div&gt;
+&lt;!-- 콘텐츠 화면내용 종료 --&gt;
+								</pre>
+								<!-- Code End -->
+                            </div>
+							<!-- Content End -->
+							
+                        </div>
+                        <!-- Body End -->
+                    </div>
+                    <!-- 콘텐츠 탭 기본구성 끝  -->
+                    
+                </div>
+                <!-- Contents End -->
+                
+			</div>
+		</div>
+	</div>
+	
+	<!-- JavaScript -->
+    <script src="../resource/js/jquery-1.11.2.min.js"></script>
+    <script src="../resource/js/common.js"></script>
+    
+    <script src="../resource/bootstrap/dist/js/bootstrap.min.js"></script>			<!-- 부트스트랩 JS -->
+    <script src="../resource/bootstrap/metisMenu/dist/metisMenu.min.js"></script>	<!-- 부트스트랩 메뉴 JS -->
+    <script src="../resource/bootstrap/sbAdmin2/dist/js/sb-admin-2.js"></script>	<!-- 부트스트랩 테마 JS -->
+</body>
+</html>
