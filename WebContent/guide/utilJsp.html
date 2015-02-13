@@ -56,14 +56,62 @@
 	
 	<!-- 본문내용 -->
 	<div id="page-wrapper">
-		<br>
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Eclipse JSP Template</h1>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading" id="pdfViewerTitle">
-						IBMDITab 개발 가이드
+					<div class="panel-heading">
+					    <i class="fa fa-gear"></i>&nbsp;&nbsp;Eclipse JSP Template Setting
 					</div>
-					<div class="panel-body" id="pdfViewer">
+					<div class="panel-body">
+						<div class="alert alert-danger">
+							JSP 템플릿 설정을 통해 신규화면 또는 기존화면 변경시에 변경할 화면의 HTML 기본구조를 자동으로 기입해 준다. 
+						</div>
+						<p>
+							1. Eclipse 메뉴에서 <code>Window > Preferences</code> 환경설정을 창을 오픈한다.
+						</p>
+						<img alt="Eclipse Jsp Template Setting" src="./images/utilJsp01.png" class="img-thumbnail">
+					</div>
+					<div class="panel-body">
+						<p>
+							2. 환경설정에서 좌측 메뉴에서 <code>Web and XML > Jsp Files > Templates</code> 선택 후 Templates 화면에서 <code>Import</code> 버튼을 클릭한다.
+						</p>
+						<img alt="Eclipse Jsp Template Setting" src="./images/utilJsp02.png" class="img-thumbnail">
+					</div>
+					<div class="panel-body">
+						<p>
+							3. AJ렌터카 개발 가이드 우측상단에 있는 다운로드 메뉴에서 <code>Eclipse HTML/JSP Templates.zip</code> 파일을 다운로드 받은 후 
+							압축을 푼 폴더에서 <code>AJ렌터카_JSP_Templates.xml</code> 파일을 선택한다.
+						</p>
+						<img alt="Eclipse Jsp Template Setting" src="./images/utilJsp03.png" class="img-thumbnail">
+					</div>
+					<div class="panel-body">
+						<p>
+							4. 추가한 HTML 템플릿을 확인 후 <code>Apply</code> 버튼을 클릭한다. 환경설정 창을 닫는다. 
+						</p>
+						<img alt="Eclipse Jsp Template Setting" src="./images/utilJsp04.png" class="img-thumbnail">
+					</div>
+					<div class="panel-body">
+						<p>
+							5. 신규 Jsp파일에서 모든소스를 삭제한다.
+						</p>
+						<img alt="Eclipse Jsp Template Setting" src="./images/utilJsp05.png" class="img-thumbnail">
+					</div>
+					<div class="panel-body">
+						<p>
+							6. 신규 작업할 화면 Jsp파일에서 <code>Ctrl + Space</code> 누르면 추가한 템플릿 옵션(신규화면 타입에 따른 HTML 구조)를 선택한다.
+						</p>
+						<img alt="Eclipse Jsp Template Setting" src="./images/utilJsp06.png" class="img-thumbnail">
+					</div>
+					<div class="panel-body">
+						<p>
+							7. 신규 작업할 화면의 HTML 구조가 자동으로 기입된다.
+						</p>
+						<img alt="Eclipse Jsp Template Setting" src="./images/utilJsp07.png" class="img-thumbnail">
 					</div>
 				</div>
 			</div>
@@ -75,25 +123,9 @@
 	<!-- JavaScript -->
     <script src="../resource/js/jquery-1.11.2.min.js"></script>
     <script src="../resource/js/common.js"></script>
-    <script src="../resource/js/pdfobject.js"></script>
     
     <script src="../resource/bootstrap/dist/js/bootstrap.min.js"></script>			<!-- 부트스트랩 JS -->
     <script src="../resource/bootstrap/metisMenu/dist/metisMenu.min.js"></script>	<!-- 부트스트랩 메뉴 JS -->
     <script src="../resource/bootstrap/sbAdmin2/dist/js/sb-admin-2.js"></script>	<!-- 부트스트랩 테마 JS -->
-    
-    <script type="text/javascript">
-	    
-    	$(window).load(function(){
-    		embedPDF();
-		});
-	    
-	    function embedPDF(){
-			var myPDF = new PDFObject({
-					url: './download/IBMDITabHTML.pdf'
-					, width: "100%"
-					, height: $("#page-wrapper").height() - $("#pdfViewerTitle").height() - 40
-			}).embed('pdfViewer'); 
-		}
-    </script>
 </body>
 </html>
