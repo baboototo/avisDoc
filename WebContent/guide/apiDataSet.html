@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+	<title>AJ렌터카 개발 가이드</title>
+	
+    <link href="../resource/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">			<!-- 부트스트랩 CSS -->
+    <link href="../resource/bootstrap/metisMenu/dist/metisMenu.min.css" rel="stylesheet">	<!-- 부트스트랩 메뉴 CSS -->
+    <link href="../resource/bootstrap/sbAdmin2/dist/css/timeline.css" rel="stylesheet">		<!-- 부트스트랩 TimeLine CSS -->
+    <link href="../resource/bootstrap/sbAdmin2/dist/css/sb-admin-2.css" rel="stylesheet">	<!-- 부트스트랩 테마 CSS -->
+    <link href="../resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	<!-- 부트스트랩 테마폰트 CSS -->
+    
+    <link href="../resource/css/bootstrapCustom.css" rel="stylesheet" type="text/css">		<!-- 부트스트랩 CSS 추가 -->
+    
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+	<!-- 네비게이션 -->
+	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+		
+		<!-- 네비게이션 헤더 -->
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="./index.html">AJ렌터카 개발 가이드</a>
+		</div>
+		
+		<!-- 네비게이션 상단 오른쪽 드롭다운 -->
+		<ul class="nav navbar-top-links navbar-right">
+			<li class="dropdown" id="fileDownLoadDropdown">
+			</li>
+		</ul>
+		
+		<!-- 네비게이션 메뉴 -->
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav navbar-collapse">
+				<ul class="nav" id="side-menu">
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<!-- 본문내용 -->
+	<div id="page-wrapper">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">DATASET API <small>(condSet/dataSet 공통사용)</small></h1>
+				<p>
+					Gauce DataSet Object를 기반으로 커스터마이징한 JavaScript Object이다.
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+			
+				<div class="alert alert-danger">
+					<dl>
+					  <dt>* DATASET 사용시 유의사항</dt>
+					  <dd>DATASET 생성시 유일한 <code>ID값을 설정</code>해야 한다.</dd>
+					  <dd>DATASET Function 또는 속성값 사용시 <code>대소문자를 정확하게 입력</code>해야 한다</dd>
+					</dl>
+				</div>
+			
+				<div class="bs-callout bs-callout-default">
+				    <h4>DATASET(dataSetId, isGenerateDataType)</h4>
+				    <p>
+				    	 new DATASET("dataSetId") 생성시 <code>dataSetId</code> 값을 <code>필수</code>로 설정해야 한다.
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>dataSetId</dt>
+						<dd>IBSheet와 DATASET 맴핑시 사용하는 KEY</dd>
+						<dt>isGenerateDataType</dt>
+						<dd>기본값은 false이며, EJB BL에서 generateSql 메소드 사용시 true로 설정</dd>
+						<dd>(최초 조회한 DATASET 헤더값으로 변경하여 데이터를 서버로 전송하기 떄문에 <code>true</code> 설정해야만 <code>기존과 동일</code>하게 사용할 수 있다.)</dd>
+					</dl>
+				</div>
+		
+				<div class="bs-callout bs-callout-default">
+				    <h4>DATASET 속성 변수값</h4>
+				    <dl class="dl-horizontal">
+						<dt>id</dt>
+						<dd>DATASET ID</dd>
+						<dt>CountRow</dt>
+						<dd>DATASET Row 총 개수</dd>
+						<dt>CountColumn</dt>
+						<dd>DATASET Column 총 개수</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>Reset()</h4>
+				    <p>
+				    	 DATASET 초기화
+				    </p>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>SetDataHeader(headerStr)</h4>
+				    <p>
+				    	 데이터 CRUD 이벤트 발생시 서버로 전송할 데이터 헤더(컬럼)명 설정
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>headerStr</dt>
+						<dd>데이터 헤더(컬럼)명 ("CUSTNAME:STRING(50),CUSTCODE:STRING(10)")</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>ClearAll()</h4>
+				    <p>
+				    	 DATASET 데이터 초기화 및 헤더 데이터 초기화
+				    </p>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>ClearData()</h4>
+				    <p>
+				    	 DATASET 데이터 초기화 (<code>헤더 데이터 제외</code>)
+				    </p>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>SetDataSet(dataSetArrObj)</h4>
+				    <p>
+				    	 DATASET에 데이터 목록과 헤더 정보를 설정 (<code>데이터 조회한 JSON 데이터를 이용해 DATASET에 값을 담을 경우에만 사용</code>)
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>dataSetArrObj</dt>
+						<dd>JSON 형태의 Array Object</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>AddRow(addRowObj)</h4>
+				    <p>
+						DATASET에 데이터 추가
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>addRowObj</dt>
+						<dd>JSON 형태의 Object</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>RowData(rowIdx)</h4>
+				    <p>
+						DATASET에서 rowIdx을 이용해 데이터 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>JSON 형태의 Object</dd>
+						<dt>rowIdx</dt>
+						<dd>데이터 인덱스 번호</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>RowDataAll()</h4>
+				    <p>
+						DATASET 모든 데이터를 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>JSON 형태의 Array</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>RowCount()</h4>
+				    <p>
+						DATASET 데이터 총 개수
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>데이터 총 개수</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>ColumnCount()</h4>
+				    <p>
+						DATASET 컬럼 총 개수 (한개 데이터에 속해 있는 속성 개수)
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>컬럼 총 개수</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>ColumnIndex(colName)</h4>
+				    <p>
+						colName을 이용해 컬럼명의 위치(순번) 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>컬럼명의 순번 반환</dd>
+						<dt>colName</dt>
+						<dd>컬럼명</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>ColumnID(colIdx)</h4>
+				    <p>
+						colIdx을 이용해 컬럼명 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>컬럼명</dd>
+						<dt>colIdx</dt>
+						<dd>컬럼 순번</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>ColumnString(rowIdx, colIdx, value)</h4>
+				    <p>
+						특정 컬럼값을 변경 후 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>변경된 컬럼값</dd>
+						<dt>rowIdx</dt>
+						<dd>변경할 컬럼의 데이터 순번</dd>
+						<dt>colIdx</dt>
+						<dd>변경할 컬럼의 순번</dd>
+						<dt>value</dt>
+						<dd>변경할 컬럼값</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>ColumnValue(rowIdx, colIdx, value)</h4>
+				    <p>
+						특정 컬럼값을 변경 후 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>변경된 컬럼값</dd>
+						<dt>rowIdx</dt>
+						<dd>변경할 컬럼의 데이터 순번</dd>
+						<dt>colIdx</dt>
+						<dd>변경할 컬럼의 순번</dd>
+						<dt>value</dt>
+						<dd>변경할 컬럼값</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>NameString(rowIdx, colId, value)</h4>
+				    <p>
+						특정 컬럼값을 변경 후 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>변경된 컬럼값</dd>
+						<dt>rowIdx</dt>
+						<dd>변경할 컬럼의 데이터 순번</dd>
+						<dt>colId</dt>
+						<dd>변경할 컬럼명</dd>
+						<dt>value</dt>
+						<dd>변경할 컬럼값</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>NameValue(rowIdx, colId, value)</h4>
+				    <p>
+						특정 컬럼값을 변경 후 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>변경된 컬럼값</dd>
+						<dt>rowIdx</dt>
+						<dd>변경할 컬럼의 데이터 순번</dd>
+						<dt>colId</dt>
+						<dd>변경할 컬럼명</dd>
+						<dt>value</dt>
+						<dd>변경할 컬럼값</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>NameValueRow(colName, value)</h4>
+				    <p>
+						colName과 value값을 이용해 데이터 순번을 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>데이터 순번</dd>
+						<dt>colName</dt>
+						<dd>컬럼명</dd>
+						<dt>value</dt>
+						<dd>컬럼값</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>ValueRow(colIdx, value)</h4>
+				    <p>
+						colIdx과 value값을 이용해 데이터 순번을 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>데이터 순번</dd>
+						<dt>colIdx</dt>
+						<dd>컬럼 순번</dd>
+						<dt>value</dt>
+						<dd>컬럼값</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>RowPosition()</h4>
+				    <p>
+						선택된 데이터 순번을 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>선택된 데이터 순번</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>IBSheet2DataSetValue(rowIdx, colName)</h4>
+				    <p>
+						DATASET과 IBSheet <code>맴핑되어 있는 경우</code> IBSheet에서 rowIdx와 colName에 해당하는 컬럼값 반환<br>
+						DATASET과 IBSheet <code>맴핑되어 있는 않은 경우</code> IBSheet에서 rowIdx와 colName에 해당하는 컬럼값 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>컬럼값</dd>
+						<dt>rowIdx</dt>
+						<dd>데이터 순번</dd>
+						<dt>colName</dt>
+						<dd>컬럼명</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>UserStatus(rowIdx, status)</h4>
+				    <p>
+						데이터 상태값(CRUD) 변경
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>rowIdx</dt>
+						<dd>데이터 순번</dd>
+						<dt>status</dt>
+						<dd>데이터 상태값</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>RowStatus(rowIdx)</h4>
+				    <p>
+						데이터 상태값(CRUD) 반환
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>ReturnData</dt>
+						<dd>데이터 상태값</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>ExportData(formRowIdx, toRowIdx)</h4>
+				    <p>
+						DATASET에서 특정위치에 속한 데이터를 반환
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>ReturnData</dt>
+						<dd>JSON 형태의 Array</dd>
+						<dt>formRowIdx</dt>
+						<dd>추출할 데이터 시작순번</dd>
+						<dt>toRowIdx</dt>
+						<dd>추출할 데이터 종료순번</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>ImportData(exportDataArr)</h4>
+				    <p>
+						DATASET과 IBSheet <code>맴핑되어 있는 경우</code> DATASET과 IBSheet에 모두 데이터를 추가<br>
+						DATASET과 IBSheet <code>맴핑되어 있는 않은 경우</code> DATASET에만 데이터를 추가
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>exportDataArr</dt>
+						<dd>JSON 형태의 Array</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>OrgNameString(rowIdx, colId)</h4>
+				    <p>
+				    	최초 등록(설정)된 데이터의 컬럼값 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>컬럼값 반환</dd>
+						<dt>rowIdx</dt>
+						<dd>데이터 순번</dd>
+						<dt>colId</dt>
+						<dd>컬럼 순번</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>OrgNameValue(rowIdx, colId)</h4>
+				    <p>
+				    	최초 등록(설정)된 데이터의 컬럼값 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>컬럼값 반환</dd>
+						<dt>rowIdx</dt>
+						<dd>데이터 순번</dd>
+						<dt>colId</dt>
+						<dd>컬럼 순번</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>DeleteRow(rowIdx)</h4>
+				    <p>
+				    	데이터 삭제
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>rowIdx</dt>
+						<dd>데이터 순번</dd>
+					</dl>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<!-- JavaScript -->
+    <script src="../resource/js/jquery-1.11.2.min.js"></script>
+    <script src="../resource/js/common.js"></script>
+    
+    <script src="../resource/bootstrap/dist/js/bootstrap.min.js"></script>			<!-- 부트스트랩 JS -->
+    <script src="../resource/bootstrap/metisMenu/dist/metisMenu.min.js"></script>	<!-- 부트스트랩 메뉴 JS -->
+    <script src="../resource/bootstrap/sbAdmin2/dist/js/sb-admin-2.js"></script>	<!-- 부트스트랩 테마 JS -->
+</body>
+</html>

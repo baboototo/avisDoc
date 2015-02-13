@@ -152,8 +152,8 @@ function createMenuJsonData(){
 	       	        	menuTitle: 	"API",
 	       	        	menuIcon: 	"fa-gear",
 	       	        	subMenu: [
-	       	        	          {subTitle: "DataSet", 		subUrl: "apiDataSet.html"}
-	       	        	          , {subTitle: "TrSet", 		subUrl: "apiTrSet.html"}
+	       	        	          {subTitle: "DATASET", 		subUrl: "apiDataSet.html"}
+	       	        	          , {subTitle: "TRSET", 		subUrl: "apiTrSet.html"}
 	       	        	          , {subTitle: "IBSheet", 		subUrl: "apiIBSheet.html"}
 	       	        	          , {subTitle: "IBChart", 		subUrl: "apiIChart.html"}
 	       	        	          , {subTitle: "IBMDITab", 		subUrl: "apiIBMDITab.html"}
