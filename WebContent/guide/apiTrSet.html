@@ -80,108 +80,45 @@
 				<div class="bs-callout bs-callout-default">
 				    <h4>TRSET(trSetId)</h4>
 				    <p>
-				    	 new TRSET("trSetId") 생성시 <code>dataSetId</code> 값을 <code>필수</code>로 설정해야 한다.
+				    	 new TRSET("trSetId") 생성시 <code>trSetId</code> 값을 <code>필수</code>로 설정해야 한다.
 				    </p>
-				    <dl class="dl-horizontal">
-						<dt>dataSetId</dt>
-						<dd>IBSheet와 DATASET 맴핑시 사용하는 KEY</dd>
-						<dt>isGenerateDataType</dt>
-						<dd>기본값은 false이며, EJB BL에서 generateSql 메소드 사용시 true로 설정</dd>
-						<dd>(최초 조회한 DATASET 헤더값으로 변경하여 데이터를 서버로 전송하기 떄문에 <code>true</code> 설정해야만 <code>기존과 동일</code>하게 사용할 수 있다.)</dd>
-					</dl>
 				</div>
 		
 				<div class="bs-callout bs-callout-default">
-				    <h4>DATASET 속성 변수값</h4>
+				    <h4>TRSET 속성 변수값</h4>
 				    <dl class="dl-horizontal">
 						<dt>id</dt>
-						<dd>DATASET ID</dd>
-						<dt>CountRow</dt>
-						<dd>DATASET Row 총 개수</dd>
-						<dt>CountColumn</dt>
-						<dd>DATASET Column 총 개수</dd>
+						<dd>TRSET ID</dd>
+						<dt>Async</dt>
+						<dd>비동기 통신 여부(boolean)</dd>
+						<dt>Action</dt>
+						<dd>UI_HELPER_BASE 및 UI_HELPER_COMM 등...</dd>
+						<dt>KeyValue</dt>
+						<dd>DATASET KeyValue(JSP(I:DS01=condSet,O:DS02=dataSet01))</dd>
+						<dt>Parameters</dt>
+						<dd>EJB명 및 메소드명(ejbName=CUST0200,methodName=getCustomer)</dd>
+						<dt>IsShowBlock</dt>
+						<dd>데이터 조회시 메세지 "응답 대기중입니다..." 설정 여부(boolean) 기본값 true</dd>
+						<dt>ErrorCode</dt>
+						<dd>에러코드</dd>
+						<dt>ErrorMsg</dt>
+						<dd>에러메세지</dd>
+						<dt>TimeOut</dt>
+						<dd>데이터 통신 트랜젝션 시간설정(1000 = 1초) 기본값 120초</dd>
 					</dl>
 				</div>
 				
 				<div class="bs-callout bs-callout-default">
-				    <h4>Reset()</h4>
+				    <h4>Post(isCallFun)</h4>
 				    <p>
-				    	 DATASET 초기화
-				    </p>
-				</div>
-				
-				<div class="bs-callout bs-callout-default">
-				    <h4>SetDataHeader(headerStr)</h4>
-				    <p>
-				    	 데이터 CRUD 이벤트 발생시 서버로 전송할 데이터 헤더(컬럼)명 설정
+				    	 TRSET 설정 속성값을 이용해 데이터 이벤트를 처리
 				    </p>
 				    <dl class="dl-horizontal">
-						<dt>headerStr</dt>
-						<dd>데이터 헤더(컬럼)명 ("CUSTNAME:STRING(50),CUSTCODE:STRING(10)")</dd>
+						<dt>isCallFun</dt>
+						<dd>비동기 데이터 통신 설정시 데이터 이벤트가 완료 되면 호출되는 Function</dd>
 					</dl>
 				</div>
 				
-				<div class="bs-callout bs-callout-default">
-				    <h4>ClearAll()</h4>
-				    <p>
-				    	 DATASET 데이터 초기화 및 헤더 데이터 초기화
-				    </p>
-				</div>
-				
-				<div class="bs-callout bs-callout-default">
-				    <h4>ClearData()</h4>
-				    <p>
-				    	 DATASET 데이터 초기화 (<code>헤더 데이터 제외</code>)
-				    </p>
-				</div>
-				
-				<div class="bs-callout bs-callout-default">
-				    <h4>SetDataSet(dataSetArrObj)</h4>
-				    <p>
-				    	 DATASET에 데이터와 헤더 정보를 설정 (<code>데이터 조회한 JSON 데이터를 이용해 DATASET에 값을 담을 경우에만 사용</code>)
-				    </p>
-				    <dl class="dl-horizontal">
-						<dt>dataSetArrObj</dt>
-						<dd>JSON 형태의 Array Object</dd>
-					</dl>
-				</div>
-				
-				<div class="bs-callout bs-callout-default">
-				    <h4>AddRow(addRowObj)</h4>
-				    <p>
-						DATASET에 데이터 추가
-				    </p>
-				    <dl class="dl-horizontal">
-						<dt>addRowObj</dt>
-						<dd>JSON 형태의 Object</dd>
-					</dl>
-				</div>
-				
-				<div class="bs-callout bs-callout-default">
-				    <h4>RowData(rowIdx)</h4>
-				    <p>
-						DATASET에서 rowIdx을 이용해 Row 데이터 반환
-				    </p>
-				    <dl class="dl-horizontal">
-				    	<dt>ReturnData</dt>
-						<dd>JSON 형태의 Object</dd>
-						<dt>rowIdx</dt>
-						<dd>데이터 인덱스 번호</dd>
-					</dl>
-				</div>
-				
-				<div class="bs-callout bs-callout-default">
-				    <h4>RowData(rowIdx)</h4>
-				    <p>
-						DATASET에서 rowIdx을 이용해 Row 데이터 반환
-				    </p>
-				    <dl class="dl-horizontal">
-				    	<dt>ReturnData</dt>
-						<dd>JSON 형태의 Object</dd>
-						<dt>rowIdx</dt>
-						<dd>데이터 인덱스 번호</dd>
-					</dl>
-				</div>
 			</div>
 		</div>
 	</div>
