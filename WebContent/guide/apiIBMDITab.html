@@ -86,14 +86,15 @@
     	$(window).load(function(){
     		embedPDF();
 		});
-	    
+    	
 	    function embedPDF(){
 			var myPDF = new PDFObject({
-					url: './download/IBMDITabHTML.pdf'
+					url: './downloadFile/IBMDITabHTML.pdf'
 					, width: "100%"
 					, height: $("#page-wrapper").height() - $("#pdfViewerTitle").height() - 40
 			}).embed('pdfViewer'); 
 		}
+	    
     </script>
 </body>
 </html>
