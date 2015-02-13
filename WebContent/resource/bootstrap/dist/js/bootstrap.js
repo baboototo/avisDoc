@@ -1397,6 +1397,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
   Tooltip.prototype.arrow = function () {
     return this.$arrow = this.$arrow || this.tip().find('.tooltip-arrow')
+    alert("a");
   }
 
   Tooltip.prototype.validate = function () {

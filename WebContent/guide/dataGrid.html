@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+	<title>AJ렌터카 개발 가이드</title>
+	
+    <link href="../resource/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">			<!-- 부트스트랩 CSS -->
+    <link href="../resource/bootstrap/metisMenu/dist/metisMenu.min.css" rel="stylesheet">	<!-- 부트스트랩 메뉴 CSS -->
+    <link href="../resource/bootstrap/sbAdmin2/dist/css/timeline.css" rel="stylesheet">		<!-- 부트스트랩 TimeLine CSS -->
+    <link href="../resource/bootstrap/sbAdmin2/dist/css/sb-admin-2.css" rel="stylesheet">	<!-- 부트스트랩 테마 CSS -->
+    <link href="../resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	<!-- 부트스트랩 테마폰트 CSS -->
+    
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+	<!-- 네비게이션 -->
+	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+		
+		<!-- 네비게이션 헤더 -->
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="./index.html"><b>AJ렌터카 개발 가이드</b></a>
+		</div>
+		
+		<!-- 네비게이션 상단 오른쪽 드롭다운 -->
+		<ul class="nav navbar-top-links navbar-right">
+			<li class="dropdown" id="fileDownLoadDropdown">
+			</li>
+		</ul>
+		
+		<!-- 네비게이션 메뉴 -->
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav navbar-collapse">
+				<ul class="nav" id="side-menu">
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<!-- 본문내용 -->
+	<div id="page-wrapper">
+		<div class="row">
+			<div class="col-lg-12">
+			    <h1 class="page-header">Grid 가이드</h1>
+                
+				<!-- Contents Start -->
+                <div class="panel-group" id="accordion">
+                	
+					<!-- 버튼 HTML Tag 시작  -->
+                    <div class="panel panel-default">
+                        
+                       	<!-- Nav tabs start -->
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#tab01" data-toggle="tab">Grid Script</a>
+							</li>
+                               
+							<li>
+								<a href="#tab02" data-toggle="tab">DataSet / TrSet 초기화 설정</a>
+							</li>
+                               
+							<li>
+								<a href="#tab03" data-toggle="tab">DATASET Function</a>
+							</li>
+						</ul>
+                       	<!-- Nav tabs end -->
+
+						<!-- Tab panes start -->
+						<div class="panel-body">
+							<div class="tab-content">
+								<!-- tab01 start -->
+								<div class="tab-pane fade in active" id="tab01">
+									<h4>Grid Script 선언</h4>
+									<p>
+										※&nbsp;Gauce Grid Script 선언 방식을 IBSheet Script 선언으로 변경
+									</p>
+									
+                                    <div class="panel panel-default">
+                                    	
+										<!-- header start -->
+				                        <div class="panel-heading">
+				                        	AS-IS
+				                        </div>
+										<!-- header end -->
+				                        
+										<!-- body start -->
+				                        <div class="panel-body">
+
+											<!-- Code Start -->
+											<pre class="contentsLine">
+&lt;script language="javascript" src="../aviscmn/js/grid.js"&gt;&lt;/script&gt;
+&lt;script language="javascript" src="../aviscmn/js/dataset.js"&gt;&lt;/script&gt;
+&lt;script language="javascript" src="../aviscmn/js/transset.js"&gt;&lt;/script&gt;
+
+&lt;%@ include file="../aviscmn/inc/condSet.jsp"%&gt;
+&lt;%@ include file="../aviscmn/inc/dataSet01.jsp"%&gt;
+&lt;%@ include file="../aviscmn/inc/dataSet02.jsp"%&gt;
+&lt;%@ include file="../aviscmn/inc/trSet01.jsp"%&gt;
+&lt;%@ include file="../aviscmn/inc/bindCtrl01.jsp"%&gt;
+											</pre>
+	                        				<!-- Code End -->
+				                        </div>
+										<!-- body end -->
+				                    </div>
+									
+                                    <div class="panel panel-default">
+                                    	
+                                    	<!-- header start -->
+				                        <div class="panel-heading">
+				                            TO-BE
+				                        </div>
+                                    	<!-- header end -->
+                                    	
+				                        <div class="panel-body">
+											<!-- Code Start -->
+											<pre class="contentsLine">
+&lt;script type="text/javascript"&gt;
+    var condSet   = new DATASET("condSet");
+    var dataSet01 = new DATASET("dataSet01");
+    var dataSet02 = new DATASET("dataSet02");
+    var trSet01   = new TRSET("trSet01");
+&lt;/script&gt;
+											</pre>
+				                        </div>
+				                    </div>
+									
+                                    <div class="panel panel-default">
+                                    	
+										<!-- header start -->
+				                        <div class="panel-heading">
+				                            TO-BE (generateSql)
+				                        </div>
+										<!-- header end -->
+				                        
+				                        <div class="panel-body">
+											<!-- Code Start -->
+											<pre class="contentsLine">
+&lt;script type="text/javascript"&gt;
+    var condSet   = new DATASET("condSet");
+    var dataSet01 = new DATASET("dataSet01", true); // dataSet01이 generateSql 기능으로 조회 될 경우 true 적용
+    var dataSet02 = new DATASET("dataSet02");
+    var trSet01   = new TRSET("trSet01");
+&lt;/script&gt;
+											</pre>
+				                        </div>
+				                    </div>
+				                    
+                                </div>
+                                <!-- tab01 end -->
+                               
+                               
+                               
+                               	<!-- tab02 start -->
+								<div class="tab-pane fade in active" id="tab02">
+									<h4>DataSet / TrSet 초기화 설정</h4>
+									<p>
+										※&nbsp;변경 전에 사용하던 초기화 하는 코드 삭제
+										<br/>
+										-&nbsp;initDataSet&nbsp;/&nbsp;initTransSet&nbsp;/&nbsp;initGrid
+
+									</p>
+									
+                                    <div class="panel panel-default">
+                                    	
+										<!-- header start -->
+				                        <div class="panel-heading">
+				                        	AS-IS
+				                        </div>
+										<!-- header end -->
+				                        
+										<!-- body start -->
+				                        <div class="panel-body">
+
+											<!-- Code Start -->
+											<pre class="contentsLine">
+function initWindow() {
+    setTitle();
+    _setEventHandler();
+    initPopup();
+
+    initDataSet(dataSet01);
+    initTransSet(trSet01);
+    initGrid(grdSheet01, true);
+}
+											</pre>
+	                        				<!-- Code End -->
+				                        </div>
+										<!-- body end -->
+				                    </div>
+									
+                                    <div class="panel panel-default">
+                                    	
+                                    	<!-- header start -->
+				                        <div class="panel-heading">
+				                            TO-BE
+				                        </div>
+                                    	<!-- header end -->
+                                    	
+                                    	<!-- body start -->
+				                        <div class="panel-body">
+											<!-- Code Start -->
+											<pre class="contentsLine">
+function initWindow() {
+    setTitle();
+    _setEventHandler();
+    initPopup();
+}
+											</pre>
+				                        </div>
+                                    	<!-- body end -->
+                                    	
+				                    </div>
+                                </div>
+                                <!-- tab02 end -->
+                               
+                               
+                               
+                               	<!-- tab03 start -->
+								<div class="tab-pane fade in active" id="tab03">
+									<h4>&nbsp;Gauce DataSet -> Script DataSet Function</h4>
+									<p>
+										※&nbsp;Gauce DataSet 에서 사용하던 Function 명은 동일하나 사용법은 변경
+										<br/>
+										-&nbsp;	Setter Function (ColumnString, ColumnValue, NameString, NameValue 등..)
+										<br/>
+										&nbsp;&nbsp;&nbsp;&nbsp;DATASET Object에 값을 삽입할 경우 기본방식과 다르게 특정함수에 파라미터값을 넘기도록 변경
+
+									</p>
+									
+                                    <div class="panel panel-default">
+                                    	
+										<!-- header start -->
+				                        <div class="panel-heading">
+				                        	AS-IS
+				                        </div>
+										<!-- header end -->
+				                        
+										<!-- body start -->
+				                        <div class="panel-body">
+
+											<!-- Code Start -->
+											<pre class="contentsLine">
+grdSheet01.DataID = "dataSet01";
+grdSheet01.Format = '' + '&lt;C&gt;ID=Currow   Name="순번"     width=30    align=center    Value={String(CurRow)}    &lt;/C&gt;'
+                       + '&lt;C&gt;ID=Code     Name="고객코드"  width=70    align=center    Color=Blue    Cursor=Hand &lt;/C&gt;'
+                       + '&lt;C&gt;ID=Name     Name="사업자명"  width=200   align=left&lt;/C&gt;'
+                       + '&lt;C&gt;ID=BusiNo   Name="사업자번호" width=100   align=center    mask="' + MASK_BIZNO + '" &lt;/C&gt;';
+											</pre>
+	                        				<!-- Code End -->
+				                        </div>
+										<!-- body end -->
+				                    </div>
+									
+                                    <div class="panel panel-default">
+                                    	
+                                    	<!-- header start -->
+				                        <div class="panel-heading">
+				                            TO-BE
+				                        </div>
+                                    	<!-- header end -->
+                                    	
+                                    	<!-- body start -->
+				                        <div class="panel-body">
+											<!-- Code Start -->
+											<pre class="contentsLine">
+SetSheetAndDataSet("sheet", "dataSet01");
+
+var cols = [
+          {Type:"Status",  SaveName:"ISTATUS",  Hidden:true}
+        , {Type:"Text",    SaveName:"DATA_KEY", Hidden:true}
+        , {Type:"Seq",     SaveName:"CURROW",   Width:"30",   Align:"Center",  Edit:false}
+        , {Type:"Text",    SaveName:"CODE",     Width:"70",   Align:"Center",  Edit:false,  FontColor:"BLUE",  Pointer:"HAND"}
+        , {Type:"Text",    SaveName:"NAME",     Width:"200",  Align:"Left",    Edit:false}
+        , {Type:"Text",    SaveName:"BUSINO",   Width:"100",  Align:"Center",  Format:MASK_BIZNO,  Edit:false}
+    ];
+
+var headers = [{Text: "상태|DATA_KEY|순번|고객코드|사업자명|사업자번호", Align:"Center"}];
+
+InitIBSheet(sheet, cols, headers);
+
+// 조회된 컬럼에 마우스 커서(손가락 형태) 이벤트 
+sheet.SetDataLinkMouse("CUSTCOCODE", true);
+
+// 마지막 컬럼 넓이 고정
+sheet.SetExtendLastCol(0);
+											</pre>
+				                        </div>
+                                    	<!-- body end -->
+                                    	
+				                    </div>
+                                </div>
+                                <!-- tab02 end -->
+                               	
+                           	</div>
+						</div>
+						<!-- Tab panes end -->
+					</div>
+                </div>
+                <!-- Contents End -->
+                
+			</div>
+		</div>
+	</div>
+	
+	<!-- JavaScript -->
+    <script src="../resource/js/jquery-1.11.2.min.js"></script>
+    <script src="../resource/js/common.js"></script>
+    
+    <script src="../resource/bootstrap/dist/js/bootstrap.min.js"></script>			<!-- 부트스트랩 JS -->
+    <script src="../resource/bootstrap/metisMenu/dist/metisMenu.min.js"></script>	<!-- 부트스트랩 메뉴 JS -->
+    <script src="../resource/bootstrap/sbAdmin2/dist/js/sb-admin-2.js"></script>	<!-- 부트스트랩 테마 JS -->
+</body>
+</html>
