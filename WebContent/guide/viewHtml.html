@@ -116,7 +116,7 @@
 								<pre class="contentsLine" id="copyBtn03">
 &lt;!-- 큰 버튼 HTML Tag --&gt;
 &lt;span class="button gray large"&gt;
-    &lt;input type="button" onClick="" value="등록"&gt;
+    &lt;input type="button" onClick="" value="조회"&gt;
 &lt;/span&gt;
 								</pre>
 	                        	<!-- Code End -->
@@ -131,7 +131,7 @@
 								<pre class="contentsLine" id="copyBtn04">
 &lt;!-- 작은 버튼 HTML Tag --&gt;
 &lt;span class="button gray small"&gt;
-    &lt;input type="button" onClick="" value="조회"&gt;
+    &lt;input type="button" onClick="" value="일괄설정"&gt;
 &lt;/span&gt;
 								</pre>
 								<!-- Code End -->
@@ -144,13 +144,25 @@
 		                    	<br/>
 		                    	팝업 버튼
 		                    	<br/>
+		                    	-&nbsp;&nbsp;&nbsp;이미지&nbsp;<b>:</b>&nbsp;<a><img class="img-Location" src="../resource/bootstrap/sbAdmin2/dist/img/btn_search.gif" alt="팝업버튼이미지" /></a>
+		                    	<br/>
 								-&nbsp;&nbsp;&nbsp;기능에 필요한 id 및 name 선택적 수정 
 		                    	<br/><br/>
 		                    	달력 버튼
 		                    	<br/>
+		                    	-&nbsp;&nbsp;&nbsp;이미지&nbsp;<b>:</b>&nbsp;<a><img class="img-Location" src="../resource/bootstrap/sbAdmin2/dist/img/btn_calendar.gif" alt="달력버튼이미지" /></a>
+		                    	<br/>
 								-&nbsp;&nbsp;&nbsp;onclick='Calendar($(this).prev()[0]);'&nbsp;<b>:</b>&nbsp;달력에 선택된 날짜 값을 달력 버튼 tag 이전 요소에 값 적용
 		                    	<br/>
 								-&nbsp;&nbsp;&nbsp;onclick='Calendar(document.getElementsByName("USEDATEFROM")[0]);'&nbsp;<b>:</b>&nbsp;날짜 값을 적용할 input tag name 적용
+		                    	<br/><br/>
+		                    	큰 버튼
+		                    	<br/>
+		                    	-&nbsp;&nbsp;&nbsp;이미지&nbsp;<b>:</b>&nbsp;<a><img class="img-Location" src="../resource/bootstrap/sbAdmin2/dist/img/btn_large.gif" alt="큰버튼이미지" /></a>
+		                    	<br/><br/>
+		                    	작은 버튼
+		                    	<br/>
+		                    	-&nbsp;&nbsp;&nbsp;이미지&nbsp;<b>:</b>&nbsp;<a><img class="img-Location" src="../resource/bootstrap/sbAdmin2/dist/img/btn_small.gif" alt="작은버튼이미지" /></a>
 		                    </div>
 							<!-- Footer End -->
 							
@@ -175,12 +187,14 @@
 							<!-- Content Start -->
                             <div class="panel-body">
 								
+								<!-- button Start -->
 								<div class="btn_right">
-									<button type="button" name="copyBtn02" class="btn btn-outline btn-default-new">복사하기</button>
+									<button type="button" name="copyBtn05" class="btn btn-outline btn-default-new">복사하기</button>
 	                        	</div>
+								<!-- button End -->
 								
 								<!-- Code Start -->
-								<pre class="contentsLine" id="copyBtn02">
+								<pre class="contentsLine" id="copyBtn05">
 &lt;!-- 버튼 박스 HTML Tag --&gt;
 &lt;div class="btn_box"&gt;
     &lt;ul&gt;
@@ -196,7 +210,16 @@
         &lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;
-
+								</pre>
+								
+								<!-- button Start -->
+								<div class="btn_right">
+									<button type="button" name="copyBtn06" class="btn btn-outline btn-default-new">복사하기</button>
+	                        	</div>
+								<!-- button End -->
+								
+								<!-- Code Start -->
+								<pre class="contentsLine" id="copyBtn06">
 &lt;!-- 버튼 박스에서 좌우로 버튼을 위치해야 할 경우 사용 --&gt;
 &lt;div class="tb_basic_btn"&gt;
     &lt;table width="100%" cellspacing="0" cellpadding="0" border="0"&gt;
@@ -221,162 +244,92 @@
 								</pre>
 								<!-- Code End -->
 								
+								<!-- button Start -->
+								<div class="btn_right">
+									<button type="button" name="copyBtn07" class="btn btn-outline btn-default-new">복사하기</button>
+	                        	</div>
+								<!-- button End -->
+								
+								<!-- Code Start -->
+								<pre class="contentsLine" id="copyBtn07">
+&lt;!-- 컨텐츠 제목을 입력하고 오른쪽에 버튼을 사용할 경우 사용 --&gt;
+&lt;div class="p_title_box"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;p&gt;컨텐츠 제목 입력&lt;/p&gt;&lt;/li&gt;
+        &lt;li class="btn_right"&gt;
+            &lt;span class="button gray large"&gt;
+                &lt;input type="button" value="등록"&gt;
+            &lt;/span&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+								</pre>
+								<!-- Code End -->
+								
+								<!-- button Start -->
+								<div class="btn_right">
+									<button type="button" name="copyBtn08" class="btn btn-outline btn-default-new">복사하기</button>
+	                        	</div>
+								<!-- button End -->
+								
+								<!-- Code Start -->
+								<pre class="contentsLine" id="copyBtn08">
+&lt;!-- 입력폼 또는 그리드 제목 HTML Tag --&gt;
+&lt;!-- 화면참고 : 고객 &gt; 회원카드 &gt; 회원카드등록 --&gt;
+&lt;div class="tb_basic"&gt;
+    &lt;p&gt;입력폼 제목&lt;/p&gt;
+    &lt;table&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="grid_box"&gt;
+    &lt;p&gt;그리드 제목&lt;/p&gt;
+    &lt;div class="grid_outline"&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+								</pre>
+								<!-- Code End -->
+								
+								<!-- button Start -->
+								<div class="btn_right">
+									<button type="button" name="copyBtn09" class="btn btn-outline btn-default-new">복사하기</button>
+	                        	</div>
+								<!-- button End -->
+								
+								<!-- Code Start -->
+								<pre class="contentsLine" id="copyBtn09">
+&lt;!-- 하나의 화면을 여러개 단으로 나누는 HTML Tag --&gt;
+&lt;!-- 화면참고 : 예약 &gt; 국내예약 &gt; 국내예약조회_제주/김해 --&gt;
+&lt;div id="content_table"&gt;
+    &lt;div class="grid_box2"&gt;
+        &lt;table style="width: 100%" cellpadding="0" cellspacing="0" border="0"&gt;
+            &lt;colgroup&gt;
+                &lt;col style="width: 40%;"&gt;
+                &lt;col style="width: 50%;"&gt;
+            &lt;/colgroup&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td valign="top"&gt;
+                        &lt;!-- 왼쪽화면 --&gt;
+                    &lt;/td&gt;
+                    &lt;td valign="top"&gt;
+                        &lt;!-- 오른쪽화면 --&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+								</pre>
+								<!-- Code End -->
+								
                             </div>
 							<!-- Content End -->
-                            
-                            <!-- Footer Start -->
-		                    <div class="panel-footer">
-		                    	<b>※&nbsp;참조</b>
-								<br/>
-								-&nbsp;&nbsp;&nbsp;IBsheet Tab 형태 조회 화면 JavaScript
-		                    </div>
-							<!-- Footer End -->
 							
                         </div>
                         <!-- Body End -->
                     </div>
                     <!-- 버튼 박스 HTML Tag 끝  -->
-                    
-                    <!-- Grid 초기화 설정 시작  -->
-                    <div class="panel panel-default">
-                    	<!-- Header Start -->
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><b>Grid 초기화 설정</b></a>
-                            </h4>
-                        </div>
-                    	<!-- Header End -->
-                        
-                        <!-- Body Start -->
-                        <div id="collapseThree" class="panel-collapse collapse">
-                        
-							<!-- Content Start -->
-                            <div class="panel-body">
-                            	<div class="btn_right">
-									<button type="button" name="copyBtn03" class="btn btn-outline btn-default-new">복사하기</button>
-	                        	</div>
-								
-								<!-- Code Start -->
-								<pre class="contentsLine" id="copyBtn03">
-									
-var cols = [
-             {Type:"Status", SaveName:"ISTATUS",   Hidden:true}
-             {Type:"Textd",  SaveName:"DATA_KEY",  Hidden:true}
-            ,{Type:"Seq",    SaveName:"CURROW",    Width:"50",  Align:"Center", Edit:false}
-            ,{Type:"Text",   SaveName:"CORPCODE",  Width:"100", Align:"Center", Edit:false}
-            ,{Type:"Text",   SaveName:"CORNAME",   Width:"300", Align:"Left",   Edit:false}
-            ,{Type:"Text",   SaveName:"CEO",       Width:"100", Align:"Left",   Edit:false}
-           ];
-
-  &lt;!-- single header type start --&gt;
-  var headers = [{Text: "상태|순번|법인코드|법인명|대표자명", Align:"Center"}];
-  InitIBSheet(sheet, cols, headers);
-  &lt;!-- single header type end --&gt;
-
-  &lt;!-- dual header type start --&gt;
-  var headers = [ {Text: "상태|순번|법인코드|법인명|대표자명", Align:"Center"}
-                 ,{Text: "상태|순번|법인코드|법인명|대표자명", Align:"Center"}
-                ];
-  InitIBSheetDualHeader(sheet, cols, headers);
-  &lt;!-- dual header type end --&gt;
-								</pre>
-								<!-- Code End -->
-                            </div>
-							<!-- Content End -->
-							
-							<!-- Footer Start -->
-		                    <div class="panel-footer">
-		                    	<b>※&nbsp;참조</b>
-								<br/>
-								single header type
-								<br/>
-								-&nbsp;&nbsp;&nbsp;sheet 헤더 행이 한 줄일 경우 사용
-								<br/><br/>
-								dual header type
-								<br/>
-								-&nbsp;&nbsp;&nbsp;sheet 헤더 행이 한 줄 이상일 경우 사용
-		                    </div>
-							<!-- Footer End -->
-							
-                        </div>
-                        <!-- Body End -->
-                    </div>
-                    <!-- Grid 초기화 설정 끝  -->
-                    
-                    
-                    <!-- Tab 초기화 설정 시작  -->
-                    <div class="panel panel-default">
-                    	<!-- Header Start -->
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><b>Tab 초기화 설정</b></a>
-                            </h4>
-                        </div>
-                    	<!-- Header End -->
-                        
-                        <!-- Body Start -->
-                        <div id="collapseFour" class="panel-collapse collapse">
-                        
-							<!-- Content Start -->
-                            <div class="panel-body">
-                            	<div class="btn_right">
-									<button type="button" name="copyBtn04" class="btn btn-outline btn-default-new">복사하기</button>
-	                        	</div>
-								
-								<!-- Code Start -->
-								<pre class="contentsLine" id="copyBtn04">
-/*
- * IBSheet Tab Tilte
- */
-function initWindowTab(){
-    // Tab Object, Tab Item Title Array Object
-    initComTab(sheetTab, ["상담", "예약", "계약"]);
-}
-
-/*
- * IBSheet Tab Change Event
- */
-function sheetTab_OnChange(curidx, oldidx){
-	
-    sheet.Reset(); // 탭이 변경될 때 sheet 내용 초기화
-	
-    if(curidx == 0){
-        // 상담
-        initFormat01();
-    }else if(curidx == 1){
-        // 예약
-        initFormat02();
-    }else if(curidx == 2){
-        // 계약
-        initFormat03();
-    }
-}
-								</pre>
-								<!-- Code End -->
-								
-								<!-- Footer Start -->
-			                    <div class="panel-footer">
-			                    	<b>※&nbsp;참조</b>
-									<br/>
-									initWindowTab()
-									<br/>
-									-&nbsp;&nbsp;&nbsp;initComTab(Tab 명, [Tab 제목 배열])
-									<br/><br/>
-									sheetTab_OnChange()
-									<br/>
-									-&nbsp;&nbsp;&nbsp;Tab 선택 후 Sheet 정보 변경
-									<br/>
-									-&nbsp;&nbsp;&nbsp;Tab명_OnChange(현재 선택된 Tab Index, 이전에 선택된 Tab Index)
-			                    </div>
-								<!-- Footer End -->
-								
-                            </div>
-							<!-- Content End -->
-							
-                        </div>
-                        <!-- Body End -->
-                    </div>
-                    <!-- Tab 초기화 설정 끝  -->
                     
                 </div>
                 <!-- Contents End -->
