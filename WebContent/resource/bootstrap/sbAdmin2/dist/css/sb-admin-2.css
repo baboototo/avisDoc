@@ -41,7 +41,8 @@ body {
 
 .navbar-top-links li a {
     padding: 15px;
-    min-height: 50px;
+    /* IE 높이 사이즈로 인해 주석처리 */
+	/* min-height: 50px; */
 }
 
 .navbar-top-links .dropdown-menu li {
@@ -430,4 +431,14 @@ table.dataTable thead .sorting:after {
 /* 이미지 파일 위치 */
 .img-Location {
 	margin-top: -3px;
+}
+
+/* 글자 색상 회색 */
+.text-gray {
+	color: #5D5D5D;
+}
+
+/* 탭 OutLinr 제거 */
+.nav-tabs li a {
+	outline: none;
 }

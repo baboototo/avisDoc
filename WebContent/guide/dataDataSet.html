@@ -63,14 +63,11 @@
 				<!-- Contents Start -->
                 <div class="panel-group" id="accordion">
                 	
-                	<p>
-                		DATASET, TRSET 사용시 유의사항<br/>
-						1.DATASET, TRSET 생성할때 유일한 ID값을 설정해야 한다.<br/>
-						2.DATASET, TRSET의 Function을 사용할때에는 Function명 대소문자를 정확하게 입력해야 한다.<br/>
-						3.DATASET, TRSET에 값을 대입할 경우 Function에 파라미터값으로 넘긴다.<br/>
-						◦&nbsp;&nbsp;변경 전 : dataSet.NameString(1, “DEPTCODE”) = “0030”;<br/>
-						◦변경 후 : dataSet.NameString(1, “DEPTCODE”, “0030”);
-                	</p>
+               		<p class="text-danger">※&nbsp;DATASET, TRSET 사용시 유의사항</p>
+               		<p class="text-gray">
+						1. DATASET, TRSET 생성할때 유일한 ID값을 설정해야 한다.<br/>
+						2. DATASET, TRSET의 Function을 사용할때에는 Function명 대소문자를 정확하게 입력해야 한다.<br/>
+					</p>
                 	
                     <div class="panel panel-default">
                         
@@ -96,11 +93,13 @@
 								<!-- tab01 start -->
 								<div class="tab-pane fade in active" id="tab01">
 									<h4>DataSet Script 선언</h4>
-									<p>
-										※&nbsp;Gauce Script 선언 및 include 선언 방법을 JavaScript Object 생성으로 변경
-				                    	<br/>
-				                    	-&nbsp;BL에서 sql이 generateSql 기능으로 조회될 경우 dataSet의 true 적용
-									</p>
+									<div class="alert alert-info">
+										<p class="text-gray">
+											※&nbsp;Gauce Script 선언 및 include 선언 방법을 JavaScript Object 생성으로 변경
+					                    	<br/>
+					                    	-&nbsp;bl에서 sql이 generateSql 기능으로 조회될 경우 dataSet의 true 적용
+				                    	</p>
+                            		</div>
 									
                                     <div class="panel panel-default">
                                     	
@@ -178,14 +177,15 @@
                                
                                
                                	<!-- tab02 start -->
-								<div class="tab-pane fade in active" id="tab02">
+								<div class="tab-pane" id="tab02">
 									<h4>DataSet / TrSet 초기화 설정</h4>
-									<p>
-										※&nbsp;변경 전에 사용하던 초기화 하는 코드 삭제
-										<br/>
-										-&nbsp;initDataSet&nbsp;/&nbsp;initTransSet&nbsp;/&nbsp;initGrid
-
-									</p>
+									<div class="alert alert-info">
+										<p class="text-gray">
+											※&nbsp;변경 전에 사용하던 초기화 하는 코드 삭제
+											<br/>
+											-&nbsp;initDataSet&nbsp;/&nbsp;initTransSet&nbsp;/&nbsp;initGrid
+										</p>
+									</div>
 									
                                     <div class="panel panel-default">
                                     	
@@ -243,16 +243,17 @@ function initWindow() {
                                
                                
                                	<!-- tab03 start -->
-								<div class="tab-pane fade in active" id="tab03">
+								<div class="tab-pane fade" id="tab03">
 									<h4>&nbsp;Gauce DataSet <b>→</b> Script DataSet Function</h4>
-									<p>
-										※&nbsp;Gauce DataSet 에서 사용하던 Function 명은 동일하나 사용법은 변경
-										<br/>
-										-&nbsp;	Setter Function (ColumnString, ColumnValue, NameString, NameValue 등..)
-										<br/>
-										&nbsp;&nbsp;&nbsp;&nbsp;DATASET Object에 값을 삽입할 경우 기본방식과 다르게 특정함수에 파라미터값을 넘기도록 변경
-
-									</p>
+									<div class="alert alert-info">
+										<p class="text-gray">
+											※&nbsp;Gauce DataSet 에서 사용하던 Function 명은 동일하나 사용법은 변경
+											<br/>
+											-&nbsp;	Setter Function (ColumnString, ColumnValue, NameString, NameValue 등..)
+											<br/>
+											&nbsp;&nbsp;&nbsp;&nbsp;DATASET Object에 값을 삽입할 경우 기본방식과 다르게 특정함수에 파라미터값을 넘기도록 변경
+										</p>
+									</div>
 									
                                     <div class="panel panel-default">
                                     	
@@ -267,8 +268,10 @@ function initWindow() {
 
 											<!-- Code Start -->
 											<pre class="contentsLine">
-dataSet.NameValue(1, "DEPTCODE") = obj.DEPTCODE.value;
-
+dataSet.NameValue(1, "DEPTCODE")    = obj.DEPTCODE.value;
+dataSet.NameString(1, "DEPTCODE")   = obj.DEPTCODE.value;
+dataSet.ColumnString(1, "DEPTCODE") = obj.DEPTCODE.value;
+dataSet.ColumnValue(1, "DEPTCODE")  = obj.DEPTCODE.value;
 											</pre>
 	                        				<!-- Code End -->
 				                        </div>
@@ -288,12 +291,68 @@ dataSet.NameValue(1, "DEPTCODE") = obj.DEPTCODE.value;
 											<!-- Code Start -->
 											<pre class="contentsLine">
 dataSet.NameValue(1, "DEPTCODE", obj.DEPTCODE.value);
-
+dataSet.NameString(1, "DEPTCODE", obj.DEPTCODE.value);
+dataSet.ColumnString(1, "DEPTCODE", obj.DEPTCODE.value);
+dataSet.ColumnValue(1, "DEPTCODE", obj.DEPTCODE.value);
 											</pre>
 				                        </div>
                                     	<!-- body end -->
                                     	
 				                    </div>
+				                    
+				                    <br/><br/>
+				                    <p class="text-danger">※&nbsp;유의사항</p>
+									<div class="alert alert-info">
+										<p class="text-gray">
+											-&nbsp;대소문자를 정확하게 입력
+										</p>
+									</div>
+									
+									<div class="panel panel-default">
+                                    	
+										<!-- header start -->
+				                        <div class="panel-heading">
+				                        	AS-IS
+				                        </div>
+										<!-- header end -->
+				                        
+										<!-- body start -->
+				                        <div class="panel-body">
+
+											<!-- Code Start -->
+											<pre class="contentsLine">
+dataSet.<span class="text-danger">namevalue</span>(1, "<span class="text-danger">DeptCode</span>", obj.DEPTCODE.value);
+dataSet.<span class="text-danger">namestring</span>(1, "<span class="text-danger">DeptCode</span>", obj.DEPTCODE.value);
+dataSet.<span class="text-danger">columnstring</span>(1, "<span class="text-danger">DeptCode</span>", obj.DEPTCODE.value);
+dataSet.<span class="text-danger">columnvalue</span>(1, "<span class="text-danger">DeptCode</span>", obj.DEPTCODE.value);
+											</pre>
+	                        				<!-- Code End -->
+				                        </div>
+										<!-- body end -->
+				                    </div>
+									
+                                    <div class="panel panel-default">
+                                    	
+                                    	<!-- header start -->
+				                        <div class="panel-heading">
+				                            TO-BE
+				                        </div>
+                                    	<!-- header end -->
+                                    	
+                                    	<!-- body start -->
+				                        <div class="panel-body">
+											<!-- Code Start -->
+											<pre class="contentsLine">
+dataSet.<span class="text-danger">NameValue</span>(1, "<span class="text-danger">DEPTCODE</span>", obj.DEPTCODE.value);
+dataSet.<span class="text-danger">NameString</span>(1, "<span class="text-danger">DEPTCODE</span>", obj.DEPTCODE.value);
+dataSet.<span class="text-danger">ColumnString</span>(1, "<span class="text-danger">DEPTCODE</span>", obj.DEPTCODE.value);
+dataSet.<span class="text-danger">ColumnValue</span>(1, "<span class="text-danger">DEPTCODE</span>", obj.DEPTCODE.value);
+											</pre>
+				                        </div>
+                                    	<!-- body end -->
+                                    	
+				                    </div>
+				                    
                                 </div>
                                 <!-- tab02 end -->
                                	

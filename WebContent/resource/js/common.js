@@ -17,15 +17,21 @@ function createMenuHtml(){
 	$.each(menuDataObj, function(idx, menuData){
 		
 		if(menuData.subMenu == undefined){
+			
+			var beforeHtml = "";
+			if(menuData.menuIcon == "fa-info"){
+				beforeHtml = "&nbsp;";
+			}
+				
 			html+='<li>'
 				+ '	<a href="'+ menuData.menuUrl +'">'
-				+ '		<i class="fa fa-dashboard '+ menuData.menuIcon +'"></i>&nbsp;&nbsp;&nbsp;'+ menuData.menuTitle
+				+ '		'+ beforeHtml +'<i class="fa '+ menuData.menuIcon +'"></i>&nbsp;&nbsp;&nbsp;'+ menuData.menuTitle
 				+ '	</a>'
 				+ '</li>';
 		}else{
 			html+='<li>'
 				+ '	<a href="#">'
-				+ '		<i class="fa fa-bar-chart-o '+ menuData.menuIcon +'"></i>&nbsp;&nbsp;&nbsp;'+ menuData.menuTitle +'<span class="fa arrow"></span>'
+				+ '		<i class="fa '+ menuData.menuIcon +'"></i>&nbsp;&nbsp;&nbsp;'+ menuData.menuTitle +'<span class="fa arrow"></span>'
 				+ '	</a>'
 				+ '	<ul class="nav nav-second-level">';
 			
@@ -53,7 +59,7 @@ function createFileDownLoadDropdownHtml(){
 			+ '</a>'
 			+ '<ul class="dropdown-menu dropdown-messages">'
 			+ '		<li>'
-			+ '			<a href="../download/IBSheetHTML.zip">'
+			+ '			<a href="./downloadFile/IBSheetHTML.zip">'
 			+ '				<div>'
 			+ '					<strong><i class="fa fa-file-zip-o"></i> IBSheetHTML 개발자가이드 </strong>'
 			+ '				</div>'
@@ -64,7 +70,7 @@ function createFileDownLoadDropdownHtml(){
 			+ '		</li>'
 			+ '		<li class="divider"></li>'
 			+ '		<li>'
-			+ '			<a href="../download/IBChartHTML.zip">'
+			+ '			<a href="./downloadFile/IBChartHTML.zip">'
 			+ '				<div>'
 			+ '					<strong><i class="fa fa-file-zip-o"></i> IBChartHTML 개발자가이드 </strong>'
 			+ '				</div>'
@@ -75,7 +81,7 @@ function createFileDownLoadDropdownHtml(){
 			+ '		</li>'
 			+ '		<li class="divider"></li>'
 			+ '		<li>'
-			+ '			<a href="../download/IBMDITabHTML.zip">'
+			+ '			<a href="./downloadFile/IBMDITabHTML.zip">'
 			+ '				<div>'
 			+ '					<strong><i class="fa fa-file-zip-o"></i> IBMDITabHTML 개발자가이드 </strong>'
 			+ '				</div>'
@@ -87,7 +93,7 @@ function createFileDownLoadDropdownHtml(){
 			+ '		</li>'
 			+ '		<li class="divider"></li>'
 			+ '		<li>'
-			+ '			<a href="../download/AJ_Templates.zip">'
+			+ '			<a href="./downloadFile/AJ_Templates.zip">'
 			+ '				<div>'
 			+ '					<strong><i class="fa fa-file-zip-o"></i> Eclipse HTML/JSP Templates </strong>'
 			+ '				</div>'
@@ -98,7 +104,7 @@ function createFileDownLoadDropdownHtml(){
 			+ '		</li>'
 			+ '		<li class="divider"></li>'
 			+ '		<li>'
-			+ '			<a href="../download/com.avis.converter_1.0.0.20140902.jar">'
+			+ '			<a href="./downloadFile/com.avis.converter_1.0.0.20140902.jar">'
 			+ '				<div>'
 			+ '					<strong><i class="fa fa-file-zip-o"></i> Eclipse Plug-In </strong>'
 			+ '				</div>'
@@ -119,9 +125,9 @@ function createFileDownLoadDropdownHtml(){
 function createMenuJsonData(){
 	var menuDataObj = [
 					{
-					   	menuTitle: 	"개발가이드",
-					   	menuIcon: 	"fa-desktop",
-					   	menuUrl:	"#"
+					   	menuTitle: 	"&nbsp;&nbsp;개발가이드",
+					   	menuIcon: 	"fa-info",
+					   	menuUrl:	"index.html"
 					   	
 					}
 	       	        , {
@@ -137,14 +143,14 @@ function createMenuJsonData(){
 	       	        	menuTitle: "데이터구조",
 	       	        	menuIcon: 	"fa-database",
 	       	        	subMenu: [
-	       	        	          {subTitle: "DataSet", 		subUrl: "dataDataSet.html"}
+	       	        	          {subTitle: "DataSet / TrSet", 		subUrl: "dataDataSet.html"}
 //	       	        	          , {subTitle: "TrSet", 		subUrl: "dataTrSet.html"}
 	       	        	          , {subTitle: "Grid", 			subUrl: "dataGrid.html"}
 	       	        	          ]
 	       	        }
 	       	        , {
 	       	        	menuTitle: 	"API",
-	       	        	menuIcon: 	"fa-fa-database",
+	       	        	menuIcon: 	"fa-gear",
 	       	        	subMenu: [
 	       	        	          {subTitle: "DataSet", 		subUrl: "apiDataSet.html"}
 	       	        	          , {subTitle: "TrSet", 		subUrl: "apiTrSet.html"}
@@ -155,11 +161,11 @@ function createMenuJsonData(){
 	       	        }
 	       	        , {
 	       	        	menuTitle: 	"UTIL",
-	       	        	menuIcon: 	"fa-recycle",
+	       	        	menuIcon: 	"fa-wrench",
 	       	        	subMenu: [
-	       	        	          {subTitle: "HTML Template", 		subUrl: "utilHtml.html"}
-	       	        	          , {subTitle: "JSP Template", 		subUrl: "utilJsp.html"}
-	       	        	          , {subTitle: "Eclipse Plug-In", 	subUrl: "utilPlugIn.html"}
+	       	        	          {subTitle: "Eclipse HTML Template", 	subUrl: "utilHtml.html"}
+	       	        	          , {subTitle: "Eclipse Template", 		subUrl: "utilJsp.html"}
+	       	        	          , {subTitle: "Eclipse Plug-In", 		subUrl: "utilPlugIn.html"}
 	       	        	          ]
 	       	        }
 	       			

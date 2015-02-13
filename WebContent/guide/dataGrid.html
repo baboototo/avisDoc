@@ -63,7 +63,6 @@
 				<!-- Contents Start -->
                 <div class="panel-group" id="accordion">
                 	
-					<!-- 버튼 HTML Tag 시작  -->
                     <div class="panel panel-default">
                         
                        	<!-- Nav tabs start -->
@@ -73,11 +72,11 @@
 							</li>
                                
 							<li>
-								<a href="#tab02" data-toggle="tab">DataSet / TrSet 초기화 설정</a>
+								<a href="#tab02" data-toggle="tab">Grid Format</a>
 							</li>
                                
 							<li>
-								<a href="#tab03" data-toggle="tab">DATASET Function</a>
+								<a href="#tab03" data-toggle="tab">조회 Event</a>
 							</li>
 						</ul>
                        	<!-- Nav tabs end -->
@@ -88,9 +87,13 @@
 								<!-- tab01 start -->
 								<div class="tab-pane fade in active" id="tab01">
 									<h4>Grid Script 선언</h4>
-									<p>
-										※&nbsp;Gauce Grid Script 선언 방식을 IBSheet Script 선언으로 변경
-									</p>
+									<div class="alert alert-info">
+										<p class="text-gray">
+											※&nbsp;Gauce Grid Script 선언 방식을 IBSheet Script 선언으로 변경
+											<br/>
+											-&nbsp;Tab 형태 조회 <b>:</b> 화면구성 > JavaScript 참조
+				                    	</p>
+                            		</div>
 									
                                     <div class="panel panel-default">
                                     	
@@ -105,15 +108,7 @@
 
 											<!-- Code Start -->
 											<pre class="contentsLine">
-&lt;script language="javascript" src="../aviscmn/js/grid.js"&gt;&lt;/script&gt;
-&lt;script language="javascript" src="../aviscmn/js/dataset.js"&gt;&lt;/script&gt;
-&lt;script language="javascript" src="../aviscmn/js/transset.js"&gt;&lt;/script&gt;
-
-&lt;%@ include file="../aviscmn/inc/condSet.jsp"%&gt;
-&lt;%@ include file="../aviscmn/inc/dataSet01.jsp"%&gt;
-&lt;%@ include file="../aviscmn/inc/dataSet02.jsp"%&gt;
-&lt;%@ include file="../aviscmn/inc/trSet01.jsp"%&gt;
-&lt;%@ include file="../aviscmn/inc/bindCtrl01.jsp"%&gt;
+&lt;script language="javascript" src="../js/grid.js"&gt;&lt;/script&gt;
 											</pre>
 	                        				<!-- Code End -->
 				                        </div>
@@ -131,118 +126,50 @@
 				                        <div class="panel-body">
 											<!-- Code Start -->
 											<pre class="contentsLine">
-&lt;script type="text/javascript"&gt;
-    var condSet   = new DATASET("condSet");
-    var dataSet01 = new DATASET("dataSet01");
-    var dataSet02 = new DATASET("dataSet02");
-    var trSet01   = new TRSET("trSet01");
-&lt;/script&gt;
+&lt;script type="text/javascript" src="../../resources/js/commonIBSheet.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="../../resources/ibsheet/ibsheet.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="../../resources/ibsheet/ibsheetinfo.js"&gt;&lt;/script&gt;
 											</pre>
 				                        </div>
 				                    </div>
-									
-                                    <div class="panel panel-default">
-                                    	
-										<!-- header start -->
+				                    
+				                    <br/>
+				                    <h4>Grid 초기화 설정</h4>
+									<div class="alert alert-info">
+										<p class="text-gray">
+											※&nbsp;변경 전에 사용하던 초기화 하는 코드 삭제
+				                    	</p>
+                            		</div>
+                            		
+                            		<div class="panel panel-default">
+	                            		<!-- header start -->
 				                        <div class="panel-heading">
-				                            TO-BE (generateSql)
+											삭제 Function
 				                        </div>
-										<!-- header end -->
-				                        
-				                        <div class="panel-body">
+	                                   	<!-- header end -->
+                            		
+	                            		<div class="panel-body">
 											<!-- Code Start -->
 											<pre class="contentsLine">
-&lt;script type="text/javascript"&gt;
-    var condSet   = new DATASET("condSet");
-    var dataSet01 = new DATASET("dataSet01", true); // dataSet01이 generateSql 기능으로 조회 될 경우 true 적용
-    var dataSet02 = new DATASET("dataSet02");
-    var trSet01   = new TRSET("trSet01");
-&lt;/script&gt;
+initGrid(grdSheet01, false);
 											</pre>
 				                        </div>
-				                    </div>
+			                        </div>
 				                    
                                 </div>
                                 <!-- tab01 end -->
                                
                                
-                               
                                	<!-- tab02 start -->
-								<div class="tab-pane fade in active" id="tab02">
-									<h4>DataSet / TrSet 초기화 설정</h4>
-									<p>
-										※&nbsp;변경 전에 사용하던 초기화 하는 코드 삭제
-										<br/>
-										-&nbsp;initDataSet&nbsp;/&nbsp;initTransSet&nbsp;/&nbsp;initGrid
-
-									</p>
-									
-                                    <div class="panel panel-default">
-                                    	
-										<!-- header start -->
-				                        <div class="panel-heading">
-				                        	AS-IS
-				                        </div>
-										<!-- header end -->
-				                        
-										<!-- body start -->
-				                        <div class="panel-body">
-
-											<!-- Code Start -->
-											<pre class="contentsLine">
-function initWindow() {
-    setTitle();
-    _setEventHandler();
-    initPopup();
-
-    initDataSet(dataSet01);
-    initTransSet(trSet01);
-    initGrid(grdSheet01, true);
-}
-											</pre>
-	                        				<!-- Code End -->
-				                        </div>
-										<!-- body end -->
-				                    </div>
-									
-                                    <div class="panel panel-default">
-                                    	
-                                    	<!-- header start -->
-				                        <div class="panel-heading">
-				                            TO-BE
-				                        </div>
-                                    	<!-- header end -->
-                                    	
-                                    	<!-- body start -->
-				                        <div class="panel-body">
-											<!-- Code Start -->
-											<pre class="contentsLine">
-function initWindow() {
-    setTitle();
-    _setEventHandler();
-    initPopup();
-}
-											</pre>
-				                        </div>
-                                    	<!-- body end -->
-                                    	
-				                    </div>
-                                </div>
-                                <!-- tab02 end -->
-                               
-                               
-                               
-                               	<!-- tab03 start -->
-								<div class="tab-pane fade in active" id="tab03">
-									<h4>&nbsp;Gauce DataSet -> Script DataSet Function</h4>
-									<p>
-										※&nbsp;Gauce DataSet 에서 사용하던 Function 명은 동일하나 사용법은 변경
-										<br/>
-										-&nbsp;	Setter Function (ColumnString, ColumnValue, NameString, NameValue 등..)
-										<br/>
-										&nbsp;&nbsp;&nbsp;&nbsp;DATASET Object에 값을 삽입할 경우 기본방식과 다르게 특정함수에 파라미터값을 넘기도록 변경
-
-									</p>
+								<div class="tab-pane" id="tab02">
+									<h4>Grid Format</h4>
+									<div class="alert alert-info">
+										<p class="text-gray">
+											※&nbsp;Gauce Grid 초기화 설정 및 Format 변경
+											<br/>
+											-&nbsp;IBSheet 기능 <b>:</b> IBSheet 개발가이드 문서 참조
+										</p>
+									</div>
 									
                                     <div class="panel panel-default">
                                     	
@@ -273,6 +200,22 @@ grdSheet01.Format = '' + '&lt;C&gt;ID=Currow   Name="순번"     width=30    ali
                                     	<!-- header start -->
 				                        <div class="panel-heading">
 				                            TO-BE
+				                            <br/>
+				                            <p class="text-danger">※&nbsp;중요사항</p>
+				                            <p class="text-gray">
+				                            	•&nbsp;Type:"Status"
+				                            	<br/>
+				                            	&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp; Sheet 컬럼 값을 수정 또는 입력할 경우 자동으로 상태 값이 변경
+				                            	<br/><br/>
+				                            	•&nbsp;SaveName:"DATA_KEY"
+				                            	<br/>
+				                            	&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp; 맵핑된 DataSet Row Index
+				                            	<br/>
+				                            	&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp; 조회된 Sheet 행을 오름차순, 내림차순 했을 경우 보여지는 
+				                            	<br/>
+				                            	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sheet Row Index가 아닌 DataSet의 Row Index
+				                            </p>
+				                            
 				                        </div>
                                     	<!-- header end -->
                                     	
@@ -280,10 +223,13 @@ grdSheet01.Format = '' + '&lt;C&gt;ID=Currow   Name="순번"     width=30    ali
 				                        <div class="panel-body">
 											<!-- Code Start -->
 											<pre class="contentsLine">
+<span class="text-primary">/** SetSheetAndDataSet(Sheet명, 맵핑 DataSet); */</span>
 SetSheetAndDataSet("sheet", "dataSet01");
 
 var cols = [
+          <span class="text-primary">/** Type:"Status" - sheet 상태 값 (입력 = "I" / 수정 = "U" / 삭제 = "D" / 조회 = "") */</span>
           {Type:"Status",  SaveName:"ISTATUS",  Hidden:true}
+          <span class="text-primary">/** DATA_KEY - 맵핑된 DataSet Row Index */</span>
         , {Type:"Text",    SaveName:"DATA_KEY", Hidden:true}
         , {Type:"Seq",     SaveName:"CURROW",   Width:"30",   Align:"Center",  Edit:false}
         , {Type:"Text",    SaveName:"CODE",     Width:"70",   Align:"Center",  Edit:false,  FontColor:"BLUE",  Pointer:"HAND"}
@@ -293,20 +239,347 @@ var cols = [
 
 var headers = [{Text: "상태|DATA_KEY|순번|고객코드|사업자명|사업자번호", Align:"Center"}];
 
-InitIBSheet(sheet, cols, headers);
+<span class="text-primary">/** InitIBSheet(sheet명, Columns Json 변수, 좌우 스크롤 고정 컬럼 Index, sheet 높이 고정); */</span>
+// InitIBSheet(sheet, cols, headers, 5, false);      // 5번째 컬럼 좌우 스크롤 고정, sheet 높이 고정
+// InitIBSheet(sheet, cols, headers, 5);             // 5번째 컬럼 좌우 스크롤 고정, sheet 높이 고정 안함
+// InitIBSheet(sheet, cols, headers, null, flase);   // 컬럼 좌우 스크롤 고정 미사용, sheet 높이 고정
 
-// 조회된 컬럼에 마우스 커서(손가락 형태) 이벤트 
-sheet.SetDataLinkMouse("CUSTCOCODE", true);
+InitIBSheet(sheet, cols, headers);                   // 컬럼 좌우 스크롤 고정 미사용, sheet 높이 고정 안함
 
-// 마지막 컬럼 넓이 고정
+// 조회된 해당 컬럼에 마우스 커서(손가락 형태) 이벤트 
+sheet.SetDataLinkMouse("CODE", true);
+
+// 마지막 컬럼 넓이 고정 (사용하지 않으면 마지막 컬럼 넓이가 sheet 마지막 여백 넓이 만큼 변경)
 sheet.SetExtendLastCol(0);
+											</pre>
+				                        </div>
+                                    	<!-- body end -->
+				                    </div>
+                                </div>
+                                <!-- tab02 end -->
+                               
+                               	<!-- tab03 start -->
+								<div class="tab-pane fade" id="tab03">
+									<h4>&nbsp;조회 Grid Event</h4>
+									<div class="alert alert-info">
+										<p class="text-gray">
+											※&nbsp;Gauce Grid Script 이벤트 등록 방식에서 IBSheet Function 등록 방식으로 변경
+										</p>
+										
+										<p class="text-danger">
+											-&nbsp;	조회 기능이 있는 화면에서 사용 (Sheet가 없는 등록화면에서는 미사용)
+											<br/>
+											-&nbsp;	대소문자를 정확하게 입력 
+											<br/>
+										</p>
+										
+										<p class="text-gray">
+											-&nbsp;	Event 상세 설명 <b>:</b> IBSheet 개발가이드 문서 참조
+										</p>
+									</div>
+									
+									<br/>
+									<h4>&nbsp;OnClick Event</h4>
+                                    <div class="panel panel-default">
+                                    	
+										<!-- header start -->
+				                        <div class="panel-heading">
+				                        	AS-IS
+				                        </div>
+										<!-- header end -->
+				                        
+										<!-- body start -->
+				                        <div class="panel-body">
+
+											<!-- Code Start -->
+											<pre class="contentsLine">
+&lt;script language="javascript" for="grdSheet01" event="OnClick(row, colid)"&gt;
+&lt;/script&gt;
+											</pre>
+	                        				<!-- Code End -->
+				                        </div>
+										<!-- body end -->
+				                    </div>
+									
+                                    <div class="panel panel-default">
+                                    	
+                                    	<!-- header start -->
+				                        <div class="panel-heading">
+				                            TO-BE
+				                        </div>
+                                    	<!-- header end -->
+                                    	
+                                    	<!-- body start -->
+				                        <div class="panel-body">
+											<!-- Code Start -->
+											<pre class="contentsLine">
+<span class="text-primary">/** Sheet명_OnClick() */</span>
+function sheet_OnClick(Row, Col, Value){
+    <span class="text-primary">/** 선택한 Row 값이 헤더행의 개수 보다 작으면 return */</span>
+    if(Row < sheet.HeaderRows()) return;
+    
+    <span class="text-primary">/** 선택한 Column의 SaveName */</span>
+    var colid = sheet.ColSaveName(Col);
+}
 											</pre>
 				                        </div>
                                     	<!-- body end -->
                                     	
 				                    </div>
+									
+									
+									<br/>
+									<h4>&nbsp;OnDblClick Event</h4>
+                                    <div class="panel panel-default">
+                                    	
+										<!-- header start -->
+				                        <div class="panel-heading">
+				                        	AS-IS
+				                        </div>
+										<!-- header end -->
+				                        
+										<!-- body start -->
+				                        <div class="panel-body">
+
+											<!-- Code Start -->
+											<pre class="contentsLine">
+&lt;script language="javascript" for="grdSheet01" event="OnDblClick(row, colid)"&gt;
+&lt;/script&gt;
+											</pre>
+	                        				<!-- Code End -->
+				                        </div>
+										<!-- body end -->
+				                    </div>
+									
+                                    <div class="panel panel-default">
+                                    	
+                                    	<!-- header start -->
+				                        <div class="panel-heading">
+				                            TO-BE
+				                        </div>
+                                    	<!-- header end -->
+                                    	
+                                    	<!-- body start -->
+				                        <div class="panel-body">
+											<!-- Code Start -->
+											<pre class="contentsLine">
+<span class="text-primary">/** Sheet명_OnDblClick() */</span>
+function sheet_OnDblClick(Row, Col, Value){
+    <span class="text-primary">/** 선택한 Row 값이 헤더행의 개수 보다 작으면 return */</span>
+    if(Row < sheet.HeaderRows()) return;
+    
+    <span class="text-primary">/** 선택한 Column의 SaveName */</span>
+    var colid = sheet.ColSaveName(Col);
+}
+
+											</pre>
+				                        </div>
+                                    	<!-- body end -->
+                                    	
+				                    </div>
+				                    
+				                    
+				                    <br/>
+									<h4>&nbsp;OnLoadCompleted Event</h4>
+                                    <div class="panel panel-default">
+                                    	
+										<!-- header start -->
+				                        <div class="panel-heading">
+				                        	AS-IS
+				                        </div>
+										<!-- header end -->
+				                        
+										<!-- body start -->
+				                        <div class="panel-body">
+
+											<!-- Code Start -->
+											<pre class="contentsLine">
+&lt;script language="javascript" for="dataSet01" event="OnLoadCompleted(rowcount)"&gt;
+    printMessage("loaded", rowcount);
+&lt;/script&gt;
+
+											</pre>
+	                        				<!-- Code End -->
+				                        </div>
+										<!-- body end -->
+				                    </div>
+									
+                                    <div class="panel panel-default">
+                                    	
+                                    	<!-- header start -->
+				                        <div class="panel-heading">
+				                            TO-BE
+				                        </div>
+                                    	<!-- header end -->
+                                    	
+                                    	<!-- body start -->
+				                        <div class="panel-body">
+											<!-- Code Start -->
+											<pre class="contentsLine">
+<span class="text-primary">/** Sheet명_OnSearchEnd() */</span>
+function sheet_OnSearchEnd(Code, Msg){
+    if(Code == 0){
+        <span class="text-primary">/** Sheet명_RowCount() - 조회 된 Sheet Row 총 개수 */</span>
+        printMessage("loaded", sheet.RowCount());
+    }
+}
+											</pre>
+				                        </div>
+                                    	<!-- body end -->
+				                    </div>
+				                    
+				                    
+				                    <br/>
+									<h4>&nbsp;OnLoadStarted Event</h4>
+									<p class="text-danger">※&nbsp;IBSheet API 존재하지 않는 Function (Gauce와 동일하게 사용하게 위한 별도로 구현한 Function)</p>
+									
+                                    <div class="panel panel-default">
+                                    	
+										<!-- header start -->
+				                        <div class="panel-heading">
+				                        	AS-IS
+				                        </div>
+										<!-- header end -->
+				                        
+										<!-- body start -->
+				                        <div class="panel-body">
+
+											<!-- Code Start -->
+											<pre class="contentsLine">
+&lt;script language="javascript" for="dataSet01" event="OnLoadStarted()"&gt;
+    printMessage("loading");
+&lt;/script&gt;
+											</pre>
+	                        				<!-- Code End -->
+				                        </div>
+										<!-- body end -->
+				                    </div>
+									
+                                    <div class="panel panel-default">
+                                    	
+                                    	<!-- header start -->
+				                        <div class="panel-heading">
+				                            TO-BE
+				                        </div>
+                                    	<!-- header end -->
+                                    	
+                                    	<!-- body start -->
+				                        <div class="panel-body">
+											<!-- Code Start -->
+											<pre class="contentsLine">
+<span class="text-primary">/** Sheet명_OnSearchStarted() */</span>
+function sheet_OnSearchStarted(){
+    printMessage("loading");
+}
+											</pre>
+				                        </div>
+                                    	<!-- body end -->
+				                    </div>
+				                    
+				                    
+				                    <br/>
+									<h4>&nbsp;OnUserColor Event</h4>
+									<p class="text-danger">
+										※&nbsp;Gauce Grid Format에서 사용되는 OnUserColor 이벤트는 화면로딩시
+										<br/>
+										&nbsp;&nbsp;&nbsp;&nbsp;Row, Column 상태값에 따라 Row Color, Column Color, Font Color 설정 하는 이벤트가 별도로 존재한다.
+										<br/>
+										&nbsp;&nbsp;&nbsp;&nbsp;하지만 IBSheet Grid 에는 이벤트 함수가 별도로 존재 하지 않는다. Gauce Grid 발생하는 이벤트 코드는
+										<br/>
+										&nbsp;&nbsp;&nbsp;&nbsp;OnLoadData 함수 안에서 이벤트를 구현해야 한다.
+									</p>
+									
+                                    <div class="panel panel-default">
+                                    	
+										<!-- header start -->
+				                        <div class="panel-heading">
+				                        	AS-IS
+				                        </div>
+										<!-- header end -->
+				                        
+										<!-- body start -->
+				                        <div class="panel-body">
+
+											<!-- Code Start -->
+											<pre class="contentsLine">
+&lt;script language="JavaScript" for="grdSheet01" event="OnUserColor(row,eventid)"&gt;
+    if(eventid == "ucolor") {
+        var gubun = jsNvl(dataSet01.NameValue(row, 'USEYN'));
+
+        if ( gubun == "Y") {
+            this.ColumnProp('CUSTNAME', 'Edit') = "none";
+            return "#E6E6E6";
+        } else {
+            this.ColumnProp('CUSTNAME', 'Edit') = "";
+            return "white";
+        }
+    }
+&lt;/script&gt;
+
+											</pre>
+	                        				<!-- Code End -->
+				                        </div>
+										<!-- body end -->
+				                    </div>
+									
+                                    <div class="panel panel-default">
+                                    	
+                                    	<!-- header start -->
+				                        <div class="panel-heading">
+				                            TO-BE
+				                        </div>
+                                    	<!-- header end -->
+                                    	
+                                    	<!-- body start -->
+				                        <div class="panel-body">
+											<!-- Code Start -->
+											<pre class="contentsLine">
+<span class="text-primary">/** Sheet명_OnLoadData() */</span>
+function sheet_OnLoadData(data){
+    var jsonData = JSON.parse(data);
+		
+    if(jsonData.hasOwnProperty("Data")){
+        var rowDatas = jsonData.Data;
+		
+        $.each(rowDatas, function(){
+            // 조회된 JSON 데이터 수정 및 속성값 설정
+            
+            <span class="text-primary">/** USEYN의 값 */</span>
+            var gubun = this.USEYN;
+            
+            if(gubun == "Y"){
+                <span class="text-primary">/** CUSTNAME 컬럼 값 수정 불가 */</span>
+                this["CUSTNAME#Edit"] = false;
+                
+                <span class="text-primary">/** CUSTNAME 컬럼 수정 불가 */</span>
+                this["CUSTNAME#BackColor"] = "#E6E6E6";
+                this["CUSTNAME#FontColor"] = "#E6E6E6";
+                this["BackColor"] = "#E6E6E6";
+                this["FontColor"] = "#E6E6E6";
+            }else{
+                this["CUSTNAME#Edit"] = true;
+            }
+            
+            if ( gubun == "Y") {
+                this.ColumnProp('CHK', 'Edit') = "none";
+            return "#E6E6E6";
+        } else {
+            this.ColumnProp('CHK', 'Edit') = "";
+            return "white";
+        }
+            
+        });
+    }
+		
+    return JSON.stringify(jsonData);
+}
+											</pre>
+				                        </div>
+                                    	<!-- body end -->
+				                    </div>
+									
                                 </div>
-                                <!-- tab02 end -->
+                                <!-- tab03 end -->
                                	
                            	</div>
 						</div>
