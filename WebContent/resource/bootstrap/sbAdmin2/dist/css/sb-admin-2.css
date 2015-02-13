@@ -426,3 +426,8 @@ table.dataTable thead .sorting:after {
 	background-color: #ebebeb;
 	border-color: #adadad;
 }
+
+/* 이미지 파일 위치 */
+.img-Location {
+	margin-top: -3px;
+}

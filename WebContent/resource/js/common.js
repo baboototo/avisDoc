@@ -121,7 +121,7 @@ function createMenuJsonData(){
 					{
 					   	menuTitle: 	"개발가이드",
 					   	menuIcon: 	"fa-desktop",
-					   	menuUrl:	"index.html"
+					   	menuUrl:	"#"
 					   	
 					}
 	       	        , {
@@ -138,7 +138,7 @@ function createMenuJsonData(){
 	       	        	menuIcon: 	"fa-database",
 	       	        	subMenu: [
 	       	        	          {subTitle: "DataSet", 		subUrl: "dataDataSet.html"}
-	       	        	          , {subTitle: "TrSet", 		subUrl: "dataTrSet.html"}
+//	       	        	          , {subTitle: "TrSet", 		subUrl: "dataTrSet.html"}
 	       	        	          , {subTitle: "Grid", 			subUrl: "dataGrid.html"}
 	       	        	          ]
 	       	        }
