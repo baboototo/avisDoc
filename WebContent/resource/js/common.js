@@ -149,6 +149,16 @@ function createMenuJsonData(){
 	       	        	          ]
 	       	        }
 	       	        , {
+	       	        	menuTitle: 	"COMMON API",
+	       	        	menuIcon: 	"fa-refresh",
+	       	        	subMenu: [
+	       	        	          {subTitle: "common_script.jsp", 		subUrl: "jsCommonScript.html"}
+	       	        	          , {subTitle: "commonFunction.js", 	subUrl: "jsCommonFunction.html"}
+	       	        	          , {subTitle: "commonIBMDITab.js", 	subUrl: "jsCommonIBMDITab.html"}
+	       	        	          , {subTitle: "commonIBSheet.js", 		subUrl: "jsCommonIBSheet.html"}
+	       	        	          ]
+	       	        }
+	       	        , {
 	       	        	menuTitle: 	"API",
 	       	        	menuIcon: 	"fa-gear",
 	       	        	subMenu: [

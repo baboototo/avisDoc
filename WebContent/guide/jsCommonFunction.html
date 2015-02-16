@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+	<title>AJ렌터카 개발 가이드</title>
+	
+    <link href="../resource/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">			<!-- 부트스트랩 CSS -->
+    <link href="../resource/bootstrap/metisMenu/dist/metisMenu.min.css" rel="stylesheet">	<!-- 부트스트랩 메뉴 CSS -->
+    <link href="../resource/bootstrap/sbAdmin2/dist/css/timeline.css" rel="stylesheet">		<!-- 부트스트랩 TimeLine CSS -->
+    <link href="../resource/bootstrap/sbAdmin2/dist/css/sb-admin-2.css" rel="stylesheet">	<!-- 부트스트랩 테마 CSS -->
+    <link href="../resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	<!-- 부트스트랩 테마폰트 CSS -->
+    
+    <link href="../resource/css/bootstrapCustom.css" rel="stylesheet" type="text/css">		<!-- 부트스트랩 CSS 추가 -->
+    
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+	<!-- 네비게이션 -->
+	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+		
+		<!-- 네비게이션 헤더 -->
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="./index.html">AJ렌터카 개발 가이드</a>
+		</div>
+		
+		<!-- 네비게이션 상단 오른쪽 드롭다운 -->
+		<ul class="nav navbar-top-links navbar-right">
+			<li class="dropdown" id="fileDownLoadDropdown">
+			</li>
+		</ul>
+		
+		<!-- 네비게이션 메뉴 -->
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav navbar-collapse">
+				<ul class="nav" id="side-menu">
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<!-- 본문내용 -->
+	<div id="page-wrapper">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">commonFunction.js</h1>
+				<p>
+					공통으로 사용되는 Map Object, Ajax 기능, Data Mapping 기능을 담고 있는 자바스크립트.<br>
+					화면 크기를 변경할 경우 OnResize이벤트가 과도하게 발생하는 것을 0.2초 간격으로 발생하도록 조절해 주는 기능이 내장되어 있음.
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+			
+				<div class="bs-callout bs-callout-default">
+				    <h4>Map</h4>
+				    <p>
+				    	Java에서 사용하는 Map Class를 동일한 기능을 가진 JavaScript용 Map Object (java 사용법 동일)
+				    </p>
+				    <ul>
+                    	<li>put</li>
+                    	<li>get</li>
+                    	<li>containsKey</li>
+                    	<li>containsValue</li>
+                    	<li>clear</li>
+                    	<li>remove</li>
+                    	<li>keys</li>
+                    	<li>values</li>
+                    	<li>size</li>
+                    </ul>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>ComEJBSync(ejbName, methodName, paramData)</h4>
+				    <p>
+				    	 EJB를 호출하는 Ajax Sync Function <code>DATASET/TRSET을 사용하지 않음.</code>
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>JSON 형태의 Object</dd>
+						<dt>ejbName</dt>
+						<dd>EJB Class명</dd>
+						<dt>methodName</dt>
+						<dd>EJB Method명</dd>
+						<dt>paramData</dt>
+						<dd>파라미터를 넘길 JSON 형태의 Object</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>ComEJBAsync(ejbName, methodName, paramData, callBackFun)</h4>
+				    <p>
+				    	 EJB를 호출하는 Ajax Async Function <code>DATASET/TRSET을 사용하지 않음.</code>
+				    </p>
+				     <dl class="dl-horizontal">
+				    	<dt>ReturnData</dt>
+						<dd>JSON 형태의 Object</dd>
+						<dt>ejbName</dt>
+						<dd>EJB Class명</dd>
+						<dt>methodName</dt>
+						<dd>EJB Method명</dd>
+						<dt>paramData</dt>
+						<dd>파라미터를 넘길 JSON 형태의 Object</dd>
+						<dt>callBackFun</dt>
+						<dd>데이터처리 이벤트 완료 후 호출되는 Function</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>ComSetBindJsonData(jsonData, defaultValue)</h4>
+				    <p>
+				    	 JSON 데이타를 받아서 해당되는 KEY로 객체의 ID를 찾아서 VALUE를 셋팅해주는 Function
+				    </p>
+				    <small>
+				    	ComEJBSync, ComEJBAsync 사용하여 넘어온 결과값을 사용시 사용
+				    </small>
+				    <dl class="dl-horizontal">
+						<dt>jsonData</dt>
+						<dd>JSON 형태의 Array</dd>
+						<dt>defaultValue</dt>
+						<dd>JSON 데이터의 값이 Null 또는 undefined 값 일 경우 기본값으로 설정할 값</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>ComSetObjValue(htmlId, value)</h4>
+				    <p>
+				    	  Html Id에 해당하는 객체를 찾아서 value를 셋팅해주는 Function
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>htmlId</dt>
+						<dd>HTML id명</dd>
+						<dt>value</dt>
+						<dd>설정값</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>defaultString(obj)</h4>
+				    <p>
+				    	 Object 값이 NULL 또는 UNDEFINED이면 ""를 반환하고 아니면 Object에 설정되어 있는 값을 반환
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>returnData</dt>
+						<dd>"" 또는 Object 값</dd>
+						<dt>obj</dt>
+						<dd>데이터를 확인할 Object</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>defaultNumber(obj)</h4>
+				    <p>
+				    	 Object 값이 NULL 또는 UNDEFINED이면 0를 반환하고 아니면 Object 값을 int형으로 반환
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>returnData</dt>
+						<dd>0 또는 Object 값을 변환한 int형 값</dd>
+						<dt>obj</dt>
+						<dd>데이터를 확인할 Object</dd>
+					</dl>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<!-- JavaScript -->
+    <script src="../resource/js/jquery-1.11.2.min.js"></script>
+    <script src="../resource/js/common.js"></script>
+    
+    <script src="../resource/bootstrap/dist/js/bootstrap.min.js"></script>			<!-- 부트스트랩 JS -->
+    <script src="../resource/bootstrap/metisMenu/dist/metisMenu.min.js"></script>	<!-- 부트스트랩 메뉴 JS -->
+    <script src="../resource/bootstrap/sbAdmin2/dist/js/sb-admin-2.js"></script>	<!-- 부트스트랩 테마 JS -->
+</body>
+</html>
