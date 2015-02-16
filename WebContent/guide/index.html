@@ -56,9 +56,125 @@
 	
 	<!-- 본문내용 -->
 	<div id="page-wrapper">
+		
+		<div class="row">
+			<div class="col-lg-12">
+			    <h1 class="page-header">개발 가이드</h1>
+                
+				<!-- Contents Start -->
+                <div class="panel-group" id="accordion">
+                	
+                    <div class="panel panel-default">
+                        
+                       	<!-- Nav tabs start -->
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a href="#tab01" data-toggle="tab">조회 화면</a>
+							</li>
+                               
+							<li>
+								<a href="#tab02" data-toggle="tab">등록 화면</a>
+							</li>
+						</ul>
+                       	<!-- Nav tabs end -->
+
+						<!-- Tab panes start -->
+						<div class="panel-body">
+							<div class="tab-content">
+								<!-- tab01 start -->
+								<div class="tab-pane fade in active" id="tab01">
+									<h4 class="text-gray"><b>조회 화면 작업 순서</b></h4>
+									
+									<div class="alert alert-info">
+										<p class="text-gray">
+											-&nbsp;&nbsp;&nbsp;화면 작업 전 UTIL 메뉴 필독
+											<br/>-&nbsp;&nbsp;&nbsp;CONVERT GUIDE 메뉴 참고
+										</p>
+									</div>
+									
+				                    <div class="well well-sm-white">
+				                        <h4>•&nbsp;JSP 필요 속성 추출</h4>
+				                        <ol>
+			                                <li class="text-gray">기존 파일 마우스 우측 클릭</li>
+			                                <li class="text-gray">AjRentacar 클릭 - 각 메뉴 선택</li>
+			                                <li class="text-gray">필요 속성 정보 - 에디터 프로그램에 복사</li>
+			                            </ol>
+				                    </div>
+				                    
+				                    <div class="well well-sm-white">
+				                        <h4>•&nbsp;HTML 작성</h4>
+				                        <ol>
+			                                <li class="text-gray">기존 파일 소스 - 에디터 프로그램에 복사</li>
+			                                <li class="text-gray">기존 파일 소스 삭제</li>
+			                                <li class="text-gray">Ctrl + Space Bar 실행 후 AJ New IBSheet View Template 선택</li>
+			                                <li class="text-gray">주석 / Java / js 선언 / 태그 등 작성 </li>
+			                                <li class="text-gray">복사해두었던 필요 속성 정보의 id / name / hidden 속성 확인</li>
+			                            </ol>
+				                    </div>
+									
+				                    <div class="well well-sm-white">
+				                    	<h4>•&nbsp;JavaScript 작성</h4>
+				                        <ol>
+			                                <li class="text-gray">복사해두었던 JavaScript 소스 복사</li>
+			                                <li class="text-gray">CondSet / DataSet / TrSet 선언</li>
+			                                <li class="text-gray">initDataSet / initTransSet / initGrid 제거</li>
+			                                <li class="text-gray">NameValue / NameString / ColumnString / ColumnValue 함수 변환</li>
+			                                <li class="text-gray">Grid Format</li>
+			                                <li class="text-gray">Grid Event 적용</li>
+			                            </ol>
+				                    </div>
+				                    
+                                </div>
+                                <!-- tab01 end -->
+                               
+                               
+                               
+                               	<!-- tab02 start -->
+								<div class="tab-pane fade" id="tab02">
+									<h4 class="text-gray"><b>등록 화면 작업 순서</b></h4>
+									
+									<div class="alert alert-info">
+										<p class="text-gray">
+											-&nbsp;&nbsp;&nbsp;화면 작업 전 UTIL 메뉴 필독
+											<br/>-&nbsp;&nbsp;&nbsp;CONVERT GUIDE 메뉴 참고
+										</p>
+									</div>
+				                    
+				                    <div class="well well-sm-white">
+				                        <h4>•&nbsp;HTML 작성</h4>
+				                        <ol>
+			                                <li class="text-gray">기존 파일 소스 - 에디터 프로그램에 복사</li>
+			                                <li class="text-gray">기존 파일 소스 삭제</li>
+			                                <li class="text-gray">Ctrl + Space Bar 실행 후 AJ New Input View Template 선택</li>
+			                                <li class="text-gray">주석 / Java / js 선언 / 태그 등 작성 </li>
+			                                <li class="text-gray">복사해두었던 필요 속성 정보의 id / name / hidden 속성 확인</li>
+			                            </ol>
+				                    </div>
+									
+				                    <div class="well well-sm-white">
+				                    	<h4>•&nbsp;JavaScript 작성</h4>
+				                        <ol>
+			                                <li class="text-gray">복사해두었던 JavaScript 소스 복사</li>
+			                                <li class="text-gray">CondSet / DataSet / TrSet 선언</li>
+			                                <li class="text-gray">initDataSet / initTransSet / initGrid 제거</li>
+			                                <li class="text-gray">DataSet 함수 변환</li>
+			                            </ol>
+				                    </div>
+				                    
+                                </div>
+                                <!-- tab02 end -->
+                               	
+                           	</div>
+						</div>
+						<!-- Tab panes end -->
+					</div>
+                </div>
+                <!-- Contents End -->
+                
+			</div>
+		</div>
+		
 	</div>
-	
-	
 	
 	<!-- JavaScript -->
     <script src="../resource/js/jquery-1.11.2.min.js"></script>

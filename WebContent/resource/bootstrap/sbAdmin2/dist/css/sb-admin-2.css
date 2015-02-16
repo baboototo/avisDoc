@@ -442,3 +442,7 @@ table.dataTable thead .sorting:after {
 .nav-tabs li a {
 	outline: none;
 }
+
+.well-sm-white {
+	background-color: #ffffff;
+}

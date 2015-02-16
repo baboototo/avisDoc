@@ -140,12 +140,11 @@ function createMenuJsonData(){
 	       	        	          ]
 	       	        }
 	       	        , {
-	       	        	menuTitle: "데이터구조",
+	       	        	menuTitle: "CONVERT GUIDE",
 	       	        	menuIcon: 	"fa-database",
 	       	        	subMenu: [
-	       	        	          {subTitle: "DataSet / TrSet", 		subUrl: "dataDataSet.html"}
-//	       	        	          , {subTitle: "TrSet", 		subUrl: "dataTrSet.html"}
-	       	        	          , {subTitle: "Grid", 			subUrl: "dataGrid.html"}
+	       	        	          {subTitle: "DATASET / TRSET", 		subUrl: "dataDataSet.html"}
+	       	        	          , {subTitle: "GRID", 			subUrl: "dataGrid.html"}
 	       	        	          ]
 	       	        }
 	       	        , {

@@ -58,7 +58,7 @@
 	<div id="page-wrapper">
 		<div class="row">
 			<div class="col-lg-12">
-			    <h1 class="page-header">DATASET 가이드</h1>
+			    <h1 class="page-header">DATASET / TRSET 가이드</h1>
                 
 				<!-- Contents Start -->
                 <div class="panel-group" id="accordion">
@@ -268,10 +268,19 @@ function initWindow() {
 
 											<!-- Code Start -->
 											<pre class="contentsLine">
+condSet.NameString(1, "DEPTCODE")   = obj.DEPTCODE.value;
 dataSet.NameValue(1, "DEPTCODE")    = obj.DEPTCODE.value;
-dataSet.NameString(1, "DEPTCODE")   = obj.DEPTCODE.value;
 dataSet.ColumnString(1, "DEPTCODE") = obj.DEPTCODE.value;
 dataSet.ColumnValue(1, "DEPTCODE")  = obj.DEPTCODE.value;
+
+<span class="text-primary">/* IBSheet 매핑된 DataSet */</span>
+<span class="text-primary">// 값 설정</span>
+dataSet.NameString(1, "DEPTCODE")   = obj.DEPTCODE.value;
+dataSet.NameValue(1, "DEPTCODE")    = obj.DEPTCODE.value;
+
+<span class="text-primary">// 값 가져오기</span>
+dataSet.NameString(1, "DEPTCODE");
+dataSet.NameValue(1, "DEPTCODE");
 											</pre>
 	                        				<!-- Code End -->
 				                        </div>
@@ -290,10 +299,16 @@ dataSet.ColumnValue(1, "DEPTCODE")  = obj.DEPTCODE.value;
 				                        <div class="panel-body">
 											<!-- Code Start -->
 											<pre class="contentsLine">
+condSet.NameString(1, "DEPTCODE", obj.DEPTCODE.value);
 dataSet.NameValue(1, "DEPTCODE", obj.DEPTCODE.value);
-dataSet.NameString(1, "DEPTCODE", obj.DEPTCODE.value);
 dataSet.ColumnString(1, "DEPTCODE", obj.DEPTCODE.value);
 dataSet.ColumnValue(1, "DEPTCODE", obj.DEPTCODE.value);
+
+<span class="text-primary">/* IBSheet 매핑된 DataSet */</span>
+<span class="text-primary">// 값 설정</span>
+sheet.<span class="text-danger">SetCellValue</span>(1, "DEPTCODE", obj.DEPTCODE.value);
+<span class="text-primary">// 값 가져오기</span>
+sheet.<span class="text-danger">GetCellValue</span>(1, "DEPTCODE");
 											</pre>
 				                        </div>
                                     	<!-- body end -->
