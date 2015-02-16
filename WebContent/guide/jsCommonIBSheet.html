@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+	<title>AJ렌터카 개발 가이드</title>
+	
+    <link href="../resource/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">			<!-- 부트스트랩 CSS -->
+    <link href="../resource/bootstrap/metisMenu/dist/metisMenu.min.css" rel="stylesheet">	<!-- 부트스트랩 메뉴 CSS -->
+    <link href="../resource/bootstrap/sbAdmin2/dist/css/timeline.css" rel="stylesheet">		<!-- 부트스트랩 TimeLine CSS -->
+    <link href="../resource/bootstrap/sbAdmin2/dist/css/sb-admin-2.css" rel="stylesheet">	<!-- 부트스트랩 테마 CSS -->
+    <link href="../resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	<!-- 부트스트랩 테마폰트 CSS -->
+    
+    <link href="../resource/css/bootstrapCustom.css" rel="stylesheet" type="text/css">		<!-- 부트스트랩 CSS 추가 -->
+    
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+	<!-- 네비게이션 -->
+	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+		
+		<!-- 네비게이션 헤더 -->
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="./index.html">AJ렌터카 개발 가이드</a>
+		</div>
+		
+		<!-- 네비게이션 상단 오른쪽 드롭다운 -->
+		<ul class="nav navbar-top-links navbar-right">
+			<li class="dropdown" id="fileDownLoadDropdown">
+			</li>
+		</ul>
+		
+		<!-- 네비게이션 메뉴 -->
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav navbar-collapse">
+				<ul class="nav" id="side-menu">
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<!-- 본문내용 -->
+	<div id="page-wrapper">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">commomIBSheet.js</h1>
+				<p>
+					IBSheet 설정시 사용 Function 및 IBSheet 복사방지 이벤트가 등록되어 있는 자바스크립트.<br>
+					화면 크기를 변경되 IBSheet 크기가 변경 될 경우 OnResize이벤트가 과도하게 발생하는 것을 0.2초 간격으로 발생하도록 조절해 주는 기능이 내장되어 있음.
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+			
+				<div class="bs-callout bs-callout-default">
+				    <h4>InitIBSheet(sheetObj, sheetCols, headers, frozenCol, isResizeEvent, resizeEventFunction)</h4>
+				    <p>
+				    	 IBSheet 초기화<br>
+				    	 resizeEventFunction 파라미터값 미 설정시 기본 이벤트로 설정
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>sheetObj</dt>
+						<dd>IBSheet Object</dd>
+						<dt>sheetCols</dt>
+						<dd>컬럼속성</dd>
+						<dt>headers</dt>
+						<dd>헤더속성</dd>
+						<dt>frozenCol</dt>
+						<dd>컬럼고정할 컬럼명</dd>
+						<dt>isResizeEvent</dt>
+						<dd>IBSheet 사이즈 자동조절 여부</dd>
+						<dt>resizeEventFunction</dt>
+						<dd>IBSheet 사이즈 Function</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>InitIBSheetDualHeader(sheetObj, sheetCols, headers, frozenCol, isResizeEvent, resizeEventFunction)</h4>
+				    <p>
+				    	 IBSheet 초기화 (DualHeader Type)<br>
+				    	 resizeEventFunction 파라미터값 미 설정시 기본 이벤트로 설정
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>sheetObj</dt>
+						<dd>IBSheet Object</dd>
+						<dt>sheetCols</dt>
+						<dd>컬럼속성</dd>
+						<dt>headers</dt>
+						<dd>헤더속성</dd>
+						<dt>frozenCol</dt>
+						<dd>컬럼고정할 컬럼명</dd>
+						<dt>isResizeEvent</dt>
+						<dd>IBSheet 사이즈 자동조절 여부</dd>
+						<dt>resizeEventFunction</dt>
+						<dd>IBSheet 사이즈 Function</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>initComSheet(sheetObj, sheetCols, headers, frozenCol)</h4>
+				    <p>
+				    	 IBSheet 초기화 (<code>InitIBSheet, InitIBSheetDualHeader 사용권장</code>)
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>sheetObj</dt>
+						<dd>IBSheet Object</dd>
+						<dt>sheetCols</dt>
+						<dd>컬럼속성</dd>
+						<dt>headers</dt>
+						<dd>헤더속성</dd>
+						<dt>frozenCol</dt>
+						<dd>컬럼고정할 컬럼명</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>IBSheetCellFontBold(sheetObj, ColSaveName, rowIdx)</h4>
+				    <p>
+				    	특정 위치의 컬럼 폰트설정
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>sheetObj</dt>
+						<dd>IBSheet Object</dd>
+						<dt>ColSaveName</dt>
+						<dd>컬럼명</dd>
+						<dt>rowIdx</dt>
+						<dd>행번호</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>DataSetIBSheetCombo(sheetObj, ColSaveName, dataSet, dataValueKey, dataTextKey, isNullValue)</h4>
+				    <p>
+				    	DATASET 데이터를 이용해 IBSheet Combo 설정
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>sheetObj</dt>
+						<dd>IBSheet Object</dd>
+						<dt>ColSaveName</dt>
+						<dd>컬럼명</dd>
+						<dt>dataSet</dt>
+						<dd>DATASET Object</dd>
+						<dt>dataValueKey</dt>
+						<dd>DATASET 데이터 컬럼명</dd>
+						<dt>dataTextKey</dt>
+						<dd>DATASET 데이터 컬럼명</dd>
+						<dt>isNullValue</dt>
+						<dd>기본값이 Null일 경우 대체할 설정값</dd>
+					</dl>
+				</div>
+				
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>DataSetIBSheetComboCell(sheetObj, row, ColSaveName, dataSet, dataValueKey, dataTextKey, isNullValue)</h4>
+				    <p>
+				    	DATASET 데이터를 이용해 특정 컬럼 IBSheet Combo 설정
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>sheetObj</dt>
+						<dd>IBSheet Object</dd>
+						<dt>row</dt>
+						<dd>행번호</dd>
+						<dt>ColSaveName</dt>
+						<dd>컬럼명</dd>
+						<dt>dataSet</dt>
+						<dd>DATASET Object</dd>
+						<dt>dataValueKey</dt>
+						<dd>DATASET 데이터 컬럼명</dd>
+						<dt>dataTextKey</dt>
+						<dd>DATASET 데이터 컬럼명</dd>
+						<dt>isNullValue</dt>
+						<dd>기본값이 Null일 경우 대체할 설정값</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>createGroupDataMap(resultData, mainKeyName, createEtcKeyFunction)</h4>
+				    <p>
+				    	특정 데이터를 특정 키값을 이용해 그룹화한 데이터 반환
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>returnData</dt>
+				    	<dd>그룹화한 Map Object</dd>
+						<dt>resultData</dt>
+						<dd>KEY/VALUE 가 존재하는 JSON Object 형태의 데이터</dd>
+						<dt>mainKeyName</dt>
+						<dd>데이터를 그룹화 할 특정 KEY명</dd>
+						<dt>createEtcKeyFunction</dt>
+						<dd>복합키 또는 사용자에 따른 KEY값을 사용할 경우 별도 키를 생성할 Function (사용자 정의)</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>createIBSheetRowPivotData(sheetObj, groupDataMap, pivotKey, pivotColArry)</h4>
+				    <p>
+				    	그룹핑된 데이터들을 이용하여 하나의 피벗 데이터로 생성후 Array에 담아 반환<br>
+				    	 - IBSheet 설정된 컬럼값과 피벗 기준값이 기준으로 생성
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>returnData</dt>
+						<dd>피벗 데이터로 생성된 Array Object</dd>
+						<dt>sheetObj</dt>
+						<dd>IBSheet Object</dd>
+						<dt>groupDataMap</dt>
+						<dd>피벗 데이터로 변경할 그룹핑된 데이터</dd>
+						<dt>pivotKey</dt>
+						<dd>피벗 데이터로 변경시 기준이 되는 KEY값</dd>
+						<dt>pivotColArry</dt>
+						<dd>피벗 데이터에 담을 컬럼명 목록</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>createIBSheetTreeRowPivotData(sheetObj, groupDataMap, pivotKey, pivotColArry, etcSettingFunction)</h4>
+				    <p>
+				    	그룹핑된 데이터들을 이용하여 하나의 피벗 데이터로 생성후 Array에 담아 반환
+				    	 - IBSheet 설정된 컬럼값과 피벗 기준값이 기준으로 생성
+				    </p>
+				    <dl class="dl-horizontal">
+				    	<dt>returnData</dt>
+						<dd>피벗 데이터로 생성된 Array Object</dd>
+						<dt>sheetObj</dt>
+						<dd>IBSheet Object</dd>
+						<dt>groupDataMap</dt>
+						<dd>피벗 데이터로 변경할 그룹핑된 데이터환</dd>
+						<dt>pivotKey</dt>
+						<dd>피벗 데이터로 변경시 기준이 되는 KEY값</dd>
+						<dt>pivotColArry</dt>
+						<dd>피벗 데이터에 담을 컬럼명 목록</dd>
+						<dt>etcSettingFunction</dt>
+						<dd>화면마다 별도로 RowData에 설정할 Function (사용자 정의)</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>addIBSheetRowData(sheetObj, rowIdx, rowDataObj)</h4>
+				    <p>
+				    	IBSheet에 JSON 형태의 Object를 Row 추가
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>sheetObj</dt>
+						<dd>IBSheet Object</dd>
+						<dt>rowIdx</dt>
+						<dd>행번호</dd>
+						<dt>rowDataObj</dt>
+						<dd>JSON 형태의 Object</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>changeSheetHeight(fromSheetObj, toSheetObj)</h4>
+				    <p>
+				    	특정 IBSheet를 기준으로 IBSheet 높이를 동일하게 변경
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>fromSheetObj</dt>
+						<dd>높이를 참고할 IBSheet Object</dd>
+						<dt>toSheetObj</dt>
+						<dd>높이를 설정할 IBSheet Object</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>exportExcelDefaultParam()</h4>
+				    <p>
+				    	IBSheet 엑셀다운로드시 사용하는 다운로드 기본설정 값을 반환
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>returnData</dt>
+						<dd>IBSheet 엑셀다운로드 기본설정값</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>exportExcel(sheetObj, exportHeader, isShowHiddenColumn)</h4>
+				    <p>
+				    	IBSheet 엑셀 다운로드 (exportExcelDefaultParam 기본값 사용)<br>
+				    	<code>메인화면에서만 엑셀 다운로드 진행 및 다운로드시 로그 생성</code>
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>sheetObj</dt>
+						<dd>IBSheet Object</dd>
+						<dt>exportHeader</dt>
+						<dd>추출할 컬럼명</dd>
+						<dt>isShowHiddenColumn</dt>
+						<dd>Hidden 컬럼 포함여부</dd>
+					</dl>
+				</div>
+				
+				<div class="bs-callout bs-callout-default">
+				    <h4>exportCustomExcel(sheetObj, excelParams)</h4>
+				    <p>
+				    	IBSheet 엑셀 다운로드 (사용자 설정값 사용)<br>
+				    	<code>메인화면에서만 엑셀 다운로드 진행 및 다운로드시 로그 생성</code>
+				    </p>
+				    <dl class="dl-horizontal">
+						<dt>sheetObj</dt>
+						<dd>IBSheet Object</dd>
+						<dt>excelParams</dt>
+						<dd>사용자 엑셀 다운로드 설정값( exportExcelDefaultParam 기본값 반환 후 설정변경 사용권장 )</dd>
+					</dl>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	<!-- JavaScript -->
+    <script src="../resource/js/jquery-1.11.2.min.js"></script>
+    <script src="../resource/js/common.js"></script>
+    
+    <script src="../resource/bootstrap/dist/js/bootstrap.min.js"></script>			<!-- 부트스트랩 JS -->
+    <script src="../resource/bootstrap/metisMenu/dist/metisMenu.min.js"></script>	<!-- 부트스트랩 메뉴 JS -->
+    <script src="../resource/bootstrap/sbAdmin2/dist/js/sb-admin-2.js"></script>	<!-- 부트스트랩 테마 JS -->
+</body>
+</html>

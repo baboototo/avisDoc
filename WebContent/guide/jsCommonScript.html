@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+	<title>AJ렌터카 개발 가이드</title>
+	
+    <link href="../resource/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">			<!-- 부트스트랩 CSS -->
+    <link href="../resource/bootstrap/metisMenu/dist/metisMenu.min.css" rel="stylesheet">	<!-- 부트스트랩 메뉴 CSS -->
+    <link href="../resource/bootstrap/sbAdmin2/dist/css/timeline.css" rel="stylesheet">		<!-- 부트스트랩 TimeLine CSS -->
+    <link href="../resource/bootstrap/sbAdmin2/dist/css/sb-admin-2.css" rel="stylesheet">	<!-- 부트스트랩 테마 CSS -->
+    <link href="../resource/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">	<!-- 부트스트랩 테마폰트 CSS -->
+    
+    <link href="../resource/css/bootstrapCustom.css" rel="stylesheet" type="text/css">		<!-- 부트스트랩 CSS 추가 -->
+    
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+	<!-- 네비게이션 -->
+	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+		
+		<!-- 네비게이션 헤더 -->
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="./index.html">AJ렌터카 개발 가이드</a>
+		</div>
+		
+		<!-- 네비게이션 상단 오른쪽 드롭다운 -->
+		<ul class="nav navbar-top-links navbar-right">
+			<li class="dropdown" id="fileDownLoadDropdown">
+			</li>
+		</ul>
+		
+		<!-- 네비게이션 메뉴 -->
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav navbar-collapse">
+				<ul class="nav" id="side-menu">
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<!-- 본문내용 -->
+	<div id="page-wrapper">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">common_script.jsp</h1>
+				<p>
+					모든화면에서 common_script.jsp을 include 한다.<br>
+					common_script.jsp 파일에서 화면에 필요한 기본설정 CSS, JS, 공통스크립트를 제공한다.
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+			
+				<div>
+					<h4>META</h4>
+	                <blockquote>
+	                    <p>meta 태그를 이용해 IE버전을 IE8 버전으로 설정</p>
+	                </blockquote>
+				</div>
+				
+				<div>
+					<h4>CSS</h4>
+	                <blockquote>
+	                    <p>화면에서 기본으로 사용되는 CSS 설정</p>
+	                    <ul>
+	                    	<li>style.css</li>
+	                    	<li>input.css</li>
+	                    </ul>
+	                    <small>
+	                        <cite>URL 파라미터 <code>ispopup</code> 값이 존재 할경우 팝업화면으로 판단하여 <code>popup.css</code>를 추가로 설정한다. </cite>
+	                    </small>
+	                </blockquote>
+				</div>
+				
+				<div>
+					<h4>JavaScript</h4>
+	                <blockquote>
+	                    <p>화면에서 기본으로 사용되는 JavaScript 설정</p>
+	                    <ul>
+	                    	<li>jquery-1.9.1.js</li>
+	                    	<li>jquery.block.ui.js</li>
+	                    	<li>json2.js</li>
+	                    	<li>gauce2ibsheet.js</li>
+	                    	<li>commonFunction.js</li>
+	                    	<li>common_new.js</li>
+	                    </ul>
+	                </blockquote>
+				</div>
+				
+				<div>
+					<h4>Loading View CSS 설정</h4>
+	                <blockquote>
+	                    <p>데이터 조회시 "응답 대기중입니다.." 나타나는 Loading View CSS 설정 및 메세지 설정</p>
+	                </blockquote>
+				</div>
+				
+				<div>
+					<h4>화면 드래그 및 복사 방지 이벤트</h4>
+	                <blockquote>
+	                    <p>화면에서 마우스 드래그 및 선택 복사 방지 이벤트 설정</p>
+	                </blockquote>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<!-- JavaScript -->
+    <script src="../resource/js/jquery-1.11.2.min.js"></script>
+    <script src="../resource/js/common.js"></script>
+    
+    <script src="../resource/bootstrap/dist/js/bootstrap.min.js"></script>			<!-- 부트스트랩 JS -->
+    <script src="../resource/bootstrap/metisMenu/dist/metisMenu.min.js"></script>	<!-- 부트스트랩 메뉴 JS -->
+    <script src="../resource/bootstrap/sbAdmin2/dist/js/sb-admin-2.js"></script>	<!-- 부트스트랩 테마 JS -->
+</body>
+</html>
