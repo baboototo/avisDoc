@@ -193,7 +193,6 @@ function initEvent(){
 		    window.clipboardData.setData('text', text);
 		    
 		    alert("복사 되었습니다.");
-		    
 		/** 비IE 처리 */    
 		} else {                    
 		    window.prompt ("클립보드 복사 : Ctrl + C", text);  
