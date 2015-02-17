@@ -140,12 +140,11 @@ function createMenuJsonData(){
 	       	        	          ]
 	       	        }
 	       	        , {
-	       	        	menuTitle: "데이터구조",
+	       	        	menuTitle: "CONVERT GUIDE",
 	       	        	menuIcon: 	"fa-database",
 	       	        	subMenu: [
-	       	        	          {subTitle: "DataSet / TrSet", 		subUrl: "dataDataSet.html"}
-//	       	        	          , {subTitle: "TrSet", 		subUrl: "dataTrSet.html"}
-	       	        	          , {subTitle: "Grid", 			subUrl: "dataGrid.html"}
+	       	        	          {subTitle: "DATASET / TRSET", 		subUrl: "dataDataSet.html"}
+	       	        	          , {subTitle: "GRID", 			subUrl: "dataGrid.html"}
 	       	        	          ]
 	       	        }
 	       	        , {
@@ -204,7 +203,6 @@ function initEvent(){
 		    window.clipboardData.setData('text', text);
 		    
 		    alert("복사 되었습니다.");
-		    
 		/** 비IE 처리 */    
 		} else {                    
 		    window.prompt ("클립보드 복사 : Ctrl + C", text);  

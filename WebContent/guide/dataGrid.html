@@ -78,6 +78,10 @@
 							<li>
 								<a href="#tab03" data-toggle="tab">조회 Event</a>
 							</li>
+                               
+							<li>
+								<a href="#tab04" data-toggle="tab">등록 Event</a>
+							</li>
 						</ul>
                        	<!-- Nav tabs end -->
 
@@ -86,12 +90,13 @@
 							<div class="tab-content">
 								<!-- tab01 start -->
 								<div class="tab-pane fade in active" id="tab01">
+								
 									<h4>Grid Script 선언</h4>
 									<div class="alert alert-info">
 										<p class="text-gray">
 											※&nbsp;Gauce Grid Script 선언 방식을 IBSheet Script 선언으로 변경
 											<br/>
-											-&nbsp;Tab 형태 조회 <b>:</b> 화면구성 > JavaScript 참조
+											-&nbsp;Tab 형태 조회 <b>:</b> 화면구성 > JavaScript 참고
 				                    	</p>
                             		</div>
 									
@@ -144,7 +149,7 @@
                             		<div class="panel panel-default">
 	                            		<!-- header start -->
 				                        <div class="panel-heading">
-											삭제 Function
+											삭제
 				                        </div>
 	                                   	<!-- header end -->
                             		
@@ -167,7 +172,7 @@ initGrid(grdSheet01, false);
 										<p class="text-gray">
 											※&nbsp;Gauce Grid 초기화 설정 및 Format 변경
 											<br/>
-											-&nbsp;IBSheet 기능 <b>:</b> IBSheet 개발가이드 문서 참조
+											-&nbsp;IBSheet 기능 <b>:</b> IBSheet 개발가이드 문서 참고
 										</p>
 									</div>
 									
@@ -260,6 +265,7 @@ sheet.SetExtendLastCol(0);
                                
                                	<!-- tab03 start -->
 								<div class="tab-pane fade" id="tab03">
+								
 									<h4>&nbsp;조회 Grid Event</h4>
 									<div class="alert alert-info">
 										<p class="text-gray">
@@ -274,10 +280,152 @@ sheet.SetExtendLastCol(0);
 										</p>
 										
 										<p class="text-gray">
-											-&nbsp;	Event 상세 설명 <b>:</b> IBSheet 개발가이드 문서 참조
+											-&nbsp;	Event 상세 설명 <b>:</b> IBSheet 개발가이드 문서 참고
 										</p>
 									</div>
 									
+									<br/>
+									<h4>&nbsp;Function</h4>
+                                    <div class="panel panel-default">
+                                    	
+										<!-- header start -->
+				                        <div class="panel-heading">
+				                        	Grid Function
+				                        </div>
+										<!-- header end -->
+				                        
+										<!-- body start -->
+				                        <div class="panel-body">
+
+											<!-- Code Start -->
+											<div class="well well-sm">
+												<h4>• Row Index 반환</h4>
+												<p>
+													&nbsp;&nbsp;&nbsp;<span class="text-primary">/* AS-IS */</span>
+													<br/>
+													&nbsp;&nbsp;&nbsp;var rowPos  = dataSet01.RowPosition;
+													<br/>
+													<br/>
+													&nbsp;&nbsp;&nbsp;<span class="text-primary">/* TO-BE */</span>
+													<br/>
+													&nbsp;&nbsp;&nbsp;var rowPos = sheet.GetSelectRow();
+												</p>
+											</div>
+											
+											<div class="well well-sm">
+												<h4>• Grid 전체 데이터 삭제</h4>
+												<p>
+													&nbsp;&nbsp;&nbsp;<span class="text-primary">/* AS-IS */</span>
+													<br/>
+													&nbsp;&nbsp;&nbsp;dataSet01.Cleardata();
+													<br/>
+													<br/>
+													&nbsp;&nbsp;&nbsp;<span class="text-primary">/* TO-BE */</span>
+													<br/>
+													&nbsp;&nbsp;&nbsp;sheet.RemoveAll();&nbsp;&nbsp;&nbsp;// 헤더 행을 제외한 모든 데이터 행을 지운다.
+													<br/>
+													<br/>
+													&nbsp;&nbsp;&nbsp;sheet.Reset();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// IBSheet에 설정된 모든 기본 속성을 제거하고 초기상태로 변경한다.
+												</p>
+											</div>
+											
+											<div class="well well-sm">
+												<h4>• Grid 데이터 입력/수정여부 확인</h4>
+												<p>
+													&nbsp;&nbsp;&nbsp;<span class="text-primary">/* AS-IS */</span>
+													<br/>
+													&nbsp;&nbsp;&nbsp;dataSet01.IsUpdated
+													<br/>
+													<br/>
+													&nbsp;&nbsp;&nbsp;<span class="text-primary">/* TO-BE */</span>
+													<br/>
+													&nbsp;&nbsp;&nbsp;sheet.IsDataModified())
+												</p>
+											</div>
+											
+											<div class="well well-sm">
+												<h4>• Grid 데이터 입력/수정여부 확인</h4>
+												<p>
+													&nbsp;&nbsp;&nbsp;<span class="text-primary">/* AS-IS */</span>
+													<br/>
+													&nbsp;&nbsp;&nbsp;if (trSet01.ErrorCode == 0) {
+													<br/>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("&lt;%=Constants.INSERT_CONFIRM %&gt;");
+													<br/>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataSet02.SyncLoad  = true;
+													<br/>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataSet01.ClearData();
+													<br/>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataSet01.ImportData(dataSet02.ExportData(1, dataSet02.CountRow, true));
+													<br/>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataSet01.ResetStatus();
+													<br/>
+													&nbsp;&nbsp;&nbsp;}
+													<br/>
+													<br/>
+													&nbsp;&nbsp;&nbsp;<span class="text-primary">/* TO-BE */</span>
+													<br/>
+													&nbsp;&nbsp;&nbsp;if (trSet01.ErrorCode == 0) {
+													<br/>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("&lt;%=Constants.INSERT_CONFIRM %&gt;");
+													<br/>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LoadSearchDataFromDataSet(sheet, dataSet02);
+													<br/>
+													&nbsp;&nbsp;&nbsp;}
+												</p>
+											</div>
+											
+											<div class="well well-sm">
+												<h4>• Data ExportData</h4>
+												<p>
+													&nbsp;&nbsp;&nbsp;<span class="text-primary">/* AS-IS */</span>
+													<br/>
+													&nbsp;&nbsp;&nbsp;dataSet02.ExportData(1, dataSet02.CountRow, true);
+													<br/>
+													<br/>
+													&nbsp;&nbsp;&nbsp;<span class="text-primary">/* TO-BE */</span>
+													<br/>
+													&nbsp;&nbsp;&nbsp;dataSet02.ExportData(StartRow, EndRow);
+												</p>
+											</div>
+											
+											<div class="well well-sm">
+												<h4>• Grid 행 추가</h4>
+												<p>
+													&nbsp;&nbsp;&nbsp;<span class="text-primary">/* AS-IS */</span>
+													<br/>
+													&nbsp;&nbsp;&nbsp;dataSet01.AddRow();
+													<br/>
+													<br/>
+													&nbsp;&nbsp;&nbsp;<span class="text-primary">/* TO-BE */</span>
+													<br/>
+													&nbsp;&nbsp;&nbsp;sheet01.DataInsert(0);&nbsp;&nbsp;&nbsp;// 첫 행 추가
+													<br/>
+													&nbsp;&nbsp;&nbsp;sheet01.DataInsert(-1);&nbsp;&nbsp;// 마지막 행 추가 
+												</p>
+											</div>
+											
+											<div class="well well-sm">
+												<h4>• Grid 행 삭제</h4>
+												<p>
+													&nbsp;&nbsp;&nbsp;<span class="text-primary">/* AS-IS */</span>
+													<br/>
+													&nbsp;&nbsp;&nbsp;dataSet01.DeleteRow(Row);
+													<br/>
+													<br/>
+													&nbsp;&nbsp;&nbsp;<span class="text-primary">/* TO-BE */</span>
+													<br/>
+													&nbsp;&nbsp;&nbsp;sheet01.RowDelete(Row);&nbsp;&nbsp;&nbsp;// 행 삭제
+													<br/>
+													&nbsp;&nbsp;&nbsp;sheet01.SetCellValue(Row, "ISTATUS", "D");&nbsp;&nbsp;// 상태 값 "D" 적용 (삭제 상태 값) 
+												</p>
+											</div>
+
+	                        				<!-- Code End -->
+				                        </div>
+										<!-- body end -->
+				                    </div>
+
 									<br/>
 									<h4>&nbsp;OnClick Event</h4>
                                     <div class="panel panel-default">
@@ -548,25 +696,19 @@ function sheet_OnLoadData(data){
             var gubun = this.USEYN;
             
             if(gubun == "Y"){
-                <span class="text-primary">/** CUSTNAME 컬럼 값 수정 불가 */</span>
-                this["CUSTNAME#Edit"] = false;
                 
-                <span class="text-primary">/** CUSTNAME 컬럼 수정 불가 */</span>
-                this["CUSTNAME#BackColor"] = "#E6E6E6";
-                this["CUSTNAME#FontColor"] = "#E6E6E6";
-                this["BackColor"] = "#E6E6E6";
-                this["FontColor"] = "#E6E6E6";
+                <span class="text-primary">/** 요소 변경 Sample Start */</span>
+                this["CUSTNAME#Edit"] = false;               <span class="text-primary">// CUSTNAME 컬럼 값 수정 불가</span>
+                this["CUSTNAME#BackColor"] = "#E6E6E6";      <span class="text-primary">// CUSTNAME 컬럼 배경 색상 변경</span> 
+                this["CUSTNAME#FontColor"] = "#E6E6E6";      <span class="text-primary">// CUSTNAME 컬럼 글자 색상 변경</span>
+                this["BackColor"] = "#E6E6E6";               <span class="text-primary">// 행 배경 색상 변경</span>
+                this["FontColor"] = "#E6E6E6";               <span class="text-primary">// 행 글자 색상 변경</span>
+                <span class="text-primary">/** 요소 변경 Sample End */</span>
+                
             }else{
-                this["CUSTNAME#Edit"] = true;
+                this["CUSTNAME#Edit"] = true;                <span class="text-primary">// CUSTNAME 컬럼 값 수정 가능</span>
+                this["CUSTNAME#BackColor"] = "#FFFFFF";      <span class="text-primary">// CUSTNAME 컬럼 배경 색상 변경</span> 
             }
-            
-            if ( gubun == "Y") {
-                this.ColumnProp('CHK', 'Edit') = "none";
-            return "#E6E6E6";
-        } else {
-            this.ColumnProp('CHK', 'Edit') = "";
-            return "white";
-        }
             
         });
     }
@@ -580,6 +722,105 @@ function sheet_OnLoadData(data){
 									
                                 </div>
                                 <!-- tab03 end -->
+                                
+                                
+                                <!-- tab04 start -->
+								<div class="tab-pane fade" id="tab04">
+									<h4>등록 Event</h4>
+									<div class="alert alert-info">
+										<p class="text-gray">
+											※&nbsp;등록 Function 변경
+				                    	</p>
+                            		</div>
+									
+                                    <br/>
+									<h4>&nbsp;OnLoadStarted Event</h4>
+									
+                                    <div class="panel panel-default">
+                                    	
+										<!-- header start -->
+				                        <div class="panel-heading">
+				                        	AS-IS
+				                        </div>
+										<!-- header end -->
+				                        
+										<!-- body start -->
+				                        <div class="panel-body">
+
+											<!-- Code Start -->
+											<pre class="contentsLine">
+&lt;script language="javascript" for="dataSet01" event="OnLoadStarted()"&gt;
+&lt;/script&gt;
+											</pre>
+	                        				<!-- Code End -->
+				                        </div>
+										<!-- body end -->
+				                    </div>
+									
+                                    <div class="panel panel-default">
+                                    	
+                                    	<!-- header start -->
+				                        <div class="panel-heading">
+				                            TO-BE
+				                        </div>
+                                    	<!-- header end -->
+                                    	
+                                    	<!-- body start -->
+				                        <div class="panel-body">
+											<!-- Code Start -->
+											<pre class="contentsLine">
+function dataSet01_OnSearchStarted(){
+}
+											</pre>
+				                        </div>
+                                    	<!-- body end -->
+				                    </div>
+				                    
+				                    <br/>
+									<h4>&nbsp;OnLoadCompleted Event</h4>
+                                    <div class="panel panel-default">
+                                    	
+										<!-- header start -->
+				                        <div class="panel-heading">
+				                        	AS-IS
+				                        </div>
+										<!-- header end -->
+				                        
+										<!-- body start -->
+				                        <div class="panel-body">
+
+											<!-- Code Start -->
+											<pre class="contentsLine">
+&lt;script language="javascript" for="dataSet01" event="OnLoadCompleted(rowcount)"&gt;
+&lt;/script&gt;
+
+											</pre>
+	                        				<!-- Code End -->
+				                        </div>
+										<!-- body end -->
+				                    </div>
+									
+                                    <div class="panel panel-default">
+                                    	
+                                    	<!-- header start -->
+				                        <div class="panel-heading">
+				                            TO-BE
+				                        </div>
+                                    	<!-- header end -->
+                                    	
+                                    	<!-- body start -->
+				                        <div class="panel-body">
+											<!-- Code Start -->
+											<pre class="contentsLine">
+function dataSet01_OnLoadCompleted(rowcount){}
+}
+											</pre>
+				                        </div>
+                                    	<!-- body end -->
+				                    </div>
+				                    
+                                </div>
+                                <!-- tab04 end -->
                                	
                            	</div>
 						</div>
@@ -587,7 +828,6 @@ function sheet_OnLoadData(data){
 					</div>
                 </div>
                 <!-- Contents End -->
-                
 			</div>
 		</div>
 	</div>
